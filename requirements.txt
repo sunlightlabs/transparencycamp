@@ -1,0 +1,16 @@
+Django==1.3
+django-debug-toolbar
+-e git://github.com/sunlightlabs/django-mediasync.git#egg=mediasync
+slimmer
+python-postmark
+django-tastypie
+pytz
+
+markdown
+django-markupfield
+-e git://github.com/sunlightlabs/django-markupwiki.git#egg=markupwiki
+
+python-openid
+-e git://github.com/jcarbaugh/django-googleauth.git#egg=googleauth
+
+gunicorn

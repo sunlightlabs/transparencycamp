@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load media %}
+
+{% block head %}
+    <link rel="shortlink" href="http://snlg.ht/tcampdc">
+{% endblock %}
+
+{% block feature %}
+    <div id="featureArea" class="vevent">
+        <iframe width="450" height="286" src="http://www.youtube.com/embed/mb9jhYweZI8?rel=0" frameborder="0" allowfullscreen></iframe>
+    	<!-- <img src="{% media_url %}/images/headerImages2.png" alt="Photos from previous transparency talks"> -->
+    	<div id="featureText">
+    	    <h2 class="summary">Transparency Camp 2011</h2>
+            <div class="details">
+                <span class="dt">
+                    <abbr class="dtstart" title="2011-04-30">April 30</abbr> - <abbr class="dtend" title="2011-05-01">May 1</abbr>
+                </span>
+                Washington, DC
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    {% if next.sessions %}
+        <div class="upnext"> 
+            <h2>Coming up next at {{ next.time }} ...</h2>
+            <ol>
+                {% for session in next.sessions %}
+                    <li>
+                        <span class="sessionTitle">
+                            <a href="{% url session_detail session.pk %}">{{ session.title }}</a>
+                        </span>
+                        <span class="location">{{ session.location }}</span>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+
+	<div class="section">
+	    <h2>Photos from TransparencyCamp 2011</h2>
+		<div id="flickrContent">
+    	    <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=5&amp;display=latest&amp;size=s&amp;layout=x&amp;source=all_tag&amp;tag=tcamp11"></script>
+		</div>
+		<div class="clear"></div>
+	    <p>Add your photos by uploading to <a href="http://flickr.com">Flickr</a> and tagging them with <a href="http://www.flickr.com/photos/tags/tcamp11/"><em>tcamp11</em></a>. While you are at it, join the <a href="http://www.flickr.com/groups/tcamp2011/">TransparencyCamp 2011 Flickr group</a>.</p>
+    </div>
+
+    <div class="section">
+        
+        <h2>About TransparencyCamp</h2>
+        
+        <p>The open government movement is a work in progress, but each year we’re seeing <a href="http://sunlightfoundation.com/blog/2010/12/24/the-year-in-sunlight-2010/">greater developments</a> in information accessibility and transparency, not just on a federal level but at the state and local level, as well. As we gear up for our fourth TransparencyCamp, we’re excited to showcase that work and propel it forward.</p>
+        <p>In the past, this “unconference” for opengov has brought together government officials, technologists, journalists and advocates to <a href="http://www.youtube.com/watch?v=sHiGGluSzyE">share their knowledge</a> about how best to use new technologies and policies to make our government really work for the people. We’ve seen some incredible results from these conversations (<a href="http://citycamp.govfresh.com/">CityCamp</a> and <a href="http://crisiscommons.org/">CrisisCommons</a>, to name two), but now it’s time to push a little farther.</p>
+        <p>This year, we’re working hard to showcase the progress that’s being made across the country at all levels of government, and to open up the conversation to what we as a community can <em>do</em> to support these and new efforts. We’re excited to have so many of you <a href="http://sunlightfoundation.com/blog/2011/02/25/transparencycamp-survey-recap/">involved in the planning process</a>, and look forward to what we will accomplish.</p>
+        
+        <div class="share">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://transparencycamp.org/" data-text="Join me at TransparencyCamp 2011!" data-count="horizontal" data-via="TCampDC" data-related="sunfoundation:TransparencyCamp organizers">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftransparencycamp.org%2F&amp;layout=standard&amp;show_faces=false&amp;width=400&amp;action=like&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:35px;" allowTransparency="true"></iframe>
+        </div>
+        <div class="clear"></div>
+        
+    </div>
+
+{% endblock %}
+
+{% block sponsors %}
+    <div class="section" id="sponsorSidebar">
+        <h3 class="centerTitle">Thanks to our sponsors</h3>
+        <ul id="sponsor_sideList">
+            <li id="microsoft"><a href="http://www.microsoft.com">Microsoft</a></li>
+            <li id="google"><a href="http://www.google.com">Google</a></li>
+            <li id="oreilly"><a href="http://oreilly.com/">O'Reilly'</a></li>
+            <li id="governing"><a href="http://www.governing.com/">Governing</a></li>
+        </ul>  
+        <div class="clear"></div>
+        <a class="viewMore" href="/sponsors">View all of our gracious sponsors »</a>
+    </div>    
+{% endblock %}

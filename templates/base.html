@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load media %}
+{% load uncon_tags %}
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="og:site_name" content="TransparencyCamp"> 
+	{% block opengraph %}
+		<meta name="og:title" content="TransparencyCamp 2011">
+		<meta name="og:description" content="">
+		<meta name="og:type" content="cause">
+		<meta name="og:url" content="http://transparencycamp.org/">
+		<meta name="og:image" content="">
+	{% endblock %}
+	<meta name="fb:admins" content="7812952">
+	<title>{% block title %}TransparencyCamp 2011{% endblock %}</title>
+	{% block head %}{% endblock %}
+	{% css "styles/screen.css" %}
+	<!--[if IE 6]>{% css "/styles/buggy.css" %}<![endif]-->
+	{% block css %}{% endblock %}
+	{% js "scripts/jquery-1.4.2.min.js" %}
+	<script src="http://services.sunlightlabs.com/brandingbar/hat_js/rtb/" type="text/javascript"></script> 
+</head>
+<body class="{% block body %}home{% endblock %}">
+	<div id="headerWrapper">
+		<div id="pageMain">
+			<div id="header">
+				<div id="mainHeader">
+					<h1><a href="{% url index %}">TransparencyCamp</a></h1>
+				</div>	
+				<div id="nav">
+					{% block nav %}
+    					<ul>
+                    		<li id="nav_logistics"><a href="/logistics/">Logistics</a></li>
+                    		<li id="nav_schedule"><a href="/sessions/">Schedule</a></li>
+                    		<li id="nav_community"><a href="/community/">Community</a></li>
+                    		<!-- <li id="nav_register"><a href="http://tcamp11.eventbrite.com/">Register</a></li> -->
+                    		<li id="nav_sponsors"><a href="/sponsors/">Sponsors</a></li>
+                    	</ul>
+                	{% endblock %}
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="mainContent" class="section">
+				{% block main_content %}
+					{% block feature %}{% endblock %}
+					<div id="ltColumn">
+						{% block content %}{% endblock %}
+					</div>
+					{% block sidebar %}
+    					<div id="rtColumn">
+    					    
+                			{% if request.user.is_authenticated %}
+    					        <div id="donateAsk" class="section">
+            				        <p><a href="/admin/">Admin</a> | <a href="/staff/logout/">Logout</a></p>
+                    		    </div>
+        				    {% endif %}
+                    		
+                    		{% block sponsors %}{% endblock %}
+                    		
+                    		<div id="tweets">	
+                    			<h3>Updates from <a href="http://twitter.com/tcampdc">@TCampDC</a></h3>
+                    			<ol class="hfeed">
+                    			    {% updates as updates %}
+                                    {% for update in updates|slice:":5" %}
+                                	<li class="hentry">
+                                		<div class="tweetMetadata">
+                                			<span class="tweetMetaDate"><a href="http://twitter.com/{{ update.user.screen_name }}/status/{{ update.twitter_id }}" class="bookmark"><abbr class="published" title="{{ update.timestamp.isoformat }}">{{ update.timestamp|date:"F j" }} {{ update.timestamp|time:"g:i A" }}</abbr></a></span>
+                                		</div>
+                                		<div class="tweetContent">
+                                			<p class="entry-title">{{ update.content|urlize }}</p>
+                                		</div>	
+                                	</li>
+                                	{% endfor %}
+                                </ol>
+                    		</div>
+                    		
+                    	</div>
+                	{% endblock %}
+				{% endblock %}
+				<div class="clear"></div>
+			</div>	
+		</div>
+	</div>
+	<div id="footer">
+		<a href="http://www.sunlightfoundation.com">Sunlight Foundation</a>
+	</div>	
+	{% block js %}{% endblock %}
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-1265484-33");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>
+

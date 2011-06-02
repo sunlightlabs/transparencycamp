@@ -1,0 +1,263 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+
+    <title>TransparencyCamp 2011</title>
+
+    <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+    
+        body { margin: 0; overflow: hidden; }
+        
+        ul.slidedeck {
+            display: block;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 1080px;
+            width: 1920px;
+        }
+        ul.slidedeck > li {
+            border-top: 20px solid #00205B;
+            border-bottom: 20px solid #00205B;
+            background: #fff url(img/pale_arrows.png) bottom left repeat-x;
+            display: block;
+            height: 1040px;
+            width: 1920px;
+        }
+        
+        div#updates {
+            background-color: #fff;
+            border: 5px solid #00205B;
+            text-align: center;
+            position: fixed;
+            left: 1480px;
+            top: 180px;
+            width: 400px;
+            -webkit-border-radius: 10px;
+               -moz-border-radius: 10px;
+                    border-radius: 10px;
+        }
+        div#updates p { font-size: 180%; margin: 2em 1em; }
+        div.wifi {
+            background-color: #00205B;
+            color: #ddd;
+            font-size: 180%;
+            position: fixed;
+            top: 0;
+            left: 885px;
+            -webkit-border-radius: 10px;
+               -moz-border-radius: 10px;
+                    border-radius: 10px;
+        }
+        div.wifi span { display: inline-block; margin: 1em 1em 0.5em; }
+        div.wifi b { color: #fff; font-weight: bold; }
+        
+        div#mobile-ad {
+            background-color: #fff;
+            border: 5px solid #00205B;
+            text-align: center;
+            position: fixed;
+            left: 1480px;
+            top: 600px;
+            width: 400px;
+            -webkit-border-radius: 10px;
+               -moz-border-radius: 10px;
+                    border-radius: 10px;
+        }
+        div#mobile-ad img { margin: 10px; }
+        
+        h1, h2, h3, h4 { color: #AD3E25; font-weight: bold; margin: 0.5em 0; }
+        h2 { font-size: 280%; }
+        h3 { font-size: 260%; }
+        h4 { font-size: 180%; font-style: oblique; }
+        
+        img.logo { top: 50px; left: 20px; position: fixed; }
+        img.bot { top: 100px; left: 1355px; position: fixed; z-index: 1000; }
+        img.map { top: 120px; left: 640px; position: fixed; }
+        
+        div.next-sessions {
+            top: 250px;
+            left: 40px;
+            width: 1400px;
+            position: absolute;
+        }
+        
+        div.next-sessions ul { list-style: none; font-size: 180%; margin: 2em 0 0 1em; }
+        div.next-sessions ul.large { font-size: 280%; }
+        div.next-sessions ul li { margin: 1.2em 0; }
+        div.next-sessions ul li span.title { color: #000; font-size: 120%; font-weight: bold; }
+        div.next-sessions ul li span.location {
+            color: #666;
+            display: inline-block;
+            font-size: 90%;
+            font-weight: bold;
+            margin: 0.3em 0 0 0.6em;
+        }
+        
+        span.screenname { color: #00205B; }
+        
+    </style>
+
+    <script src="js/libs/modernizr-custom.js"></script>
+</head>
+
+<body>
+    
+    <img src="img/logo.png" class="logo">
+    <img src="img/bot.png" class="bot">
+
+    <ul class="slidedeck">
+        <li>
+            <div class="wifi"><span>Need wifi? Connect to <b>MSFTGUEST</b></span> <span>username <b>eventwashdc</b></span> <span>password <b>K56ef26i</b></span></div>
+            <div class="next-sessions"></div>
+            <div id="updates"></div>
+            <div id="mobile-ad">
+                <h3>Mobile schedule and the latest information</h3>
+                <img src="img/tcampmobile-m.png">
+                <h2>http://m.tcamp.us</h2>
+            </div>
+        </li>
+    </ul>
+    
+    <script type="text/template" id="template-updates">
+        <h3>Just so you know...</h3>
+        <p><%= content %></p>
+        <h4>Follow <span class="screenname">@tcampdc</span> on Twitter, <span class="screenname">#tcamp11</span> on freenode IRC.</h4>
+    </script>
+    
+    <script type="text/template" id="template-sessions">
+        <% if (sessions.length === 0) { %>
+            <h2>No more sessions today!</h2>
+            <h3>Go home, crack open the laptop, and relax with your cat.</h3>
+            <img src="img/eric.jpg" alt="Eric relaxing at home">
+        <% } else { %>
+            <img src="http://transparencycamp.org/mobile/img/map-m.png" class="map">
+            <% _.each(sessions, function(day) { %>
+                <% _.each(day.slots, function(slot) { %>
+                    <h2>Coming up next at <%= slot.timeStr %>:</h2>
+                    <ul class="sessions datalist<% if (slot.sessions.length < 6) { %> large<% } %>">
+                        <% _.each(slot.sessions, function(session) { %>
+                            <li>
+                                <span class="title"><%= session.title %></span>
+                                <span class="location"><%= session.location %></small>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% }); %>
+            <% }); %>
+        <% } %>
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+    <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+    <!-- scripts concatenated and minified via ant build script -->
+    <script src="js/libs/underscore-min.js"></script>
+    <script>
+        $().ready(function() {
+            
+            var sessionsTemplate = _.template($('#template-sessions').html());
+            var updatesTemplate = _.template($('#template-updates').html());
+            
+            var DAYS = [
+                'Sunday','Monday','Tuesday','Wednesday',
+                'Thursday','Friday','Saturday'
+            ];
+            var MONTHS = [
+                'January','February','March','April','May',
+                'June','July','August','September','October',
+                'November','December'
+            ];
+
+            var formatDate = function(s) {
+
+                var year = parseInt(s.substr(0, 4), 10);
+                var month = parseInt(s.substr(5, 2), 10);
+                var day = parseInt(s.substr(8, 2), 10);
+
+                var dt = new Date(year, month, day);
+                var d = DAYS[dt.getDay()];
+                var m = MONTHS[dt.getMonth() -1];
+
+                return d + " " + m + " " + day + ", " + year;
+
+            };
+
+            var formatTime = function(s) {
+
+                var hour = parseInt(s.substr(0, 2), 10);
+                var minute = s.substr(3, 2);
+                var ampm = hour > 11 ? "pm" : "am";
+
+                if (hour === 0) {
+                    hour = 12;
+                } else if (hour > 12) {
+                    hour -= 12;
+                }
+
+                return hour + ":" + minute + ampm;
+
+            };
+            
+            var getSessions = function(callback, qs) {
+                var url = '/api/sessions/';
+                if (qs !== undefined) {
+                    url += "?" + qs;
+                }
+                $.getJSON(url, function(data) {
+                    var sessions = {};
+                    _.each(data.objects, function(o) {
+                        if (sessions[o.date] === undefined) {
+                            sessions[o.date] = {};
+                        }
+                        if (sessions[o.date][o.start_time] === undefined) {
+                            sessions[o.date][o.start_time] = [];
+                        }
+                        sessions[o.date][o.start_time].push(o);
+                    });
+                    var days = [];
+                    _.each(sessions, function(v, k) {
+                        var day = {date: k, dateStr: formatDate(k), slots: []};
+                        _.each(v, function(v, k) {
+                            var slot = {time: k, timeStr: formatTime(k), sessions: v};
+                            day.slots.push(slot);
+                        });
+                        days.push(day);
+                    });
+                    callback(days);
+                });
+            };
+            
+            var loadSessions = function() {
+                getSessions(function(data) {
+                    $('div.next-sessions').html(sessionsTemplate({sessions: data}));
+                }, 'next');
+            };
+            var loadUpdates = function() {
+                $.getJSON('/api/updates/', function(data) {
+                    console.log(data.objects[0]);
+                    if (data.objects.length > 0) {
+                        $('div#updates').html(updatesTemplate(data.objects[0]));
+                    }
+                });
+            };
+            
+            loadSessions();
+            loadUpdates();
+            
+            setInterval(loadSessions, 1000 * 60);
+            setInterval(loadUpdates, 1200 * 60);
+            
+        });
+    </script>
+    <!-- end concatenated and minified scripts-->
+
+</body>
+</html>

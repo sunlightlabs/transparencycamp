@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block body %}logistics{% endblock %}
+
+{% block content %}
+
+    <div id="callOut" style="margin-bottom: 2em;"> 
+        <h3>TransparencyCamp is over!</h3>
+        <p>Thanks to everyone that made TransparencyCamp such a huge success. Double thanks goes to Microsoft for letting us use their amazing space!</p> 
+    </div>
+
+    <h2>Where is TransparencyCamp?</h2>
+
+    <h3>Microsoft</h3>
+    <p><a href="http://goo.gl/maps/NrFg" title="Google Maps">5404 Wisconsin Avenue, Chevy Chase, MD 20815</a></p>
+    
+    <p>
+        Microsoft’s building is literally steps away from the <a href="http://wmata.com/rail/station_detail.cfm?station_id=11">Friendship Heights</a> metro stop -- just make sure that you exit on the Western Ave side of the metro and head up the stairs toward Wisconsin Ave., Western Ave., and Bloomingdale’s.
+        There’s also parking underneath the building for $7 a day and some metered street parking.
+        If you get lost, look for the folks dressed as <a href="http://transbearency.com/">bears</a> to help you (they’ll be outside the building during registration to help you find your way).
+    </p>
+    
+    <div id="map"></div>
+
+    <h2>When do I need to get there?</h2>
+    
+    <p><a href="/sessions/2/">Registration and coffee</a> will start at 9am on Saturday, April 30th. The <a href="/sessions/2/">Opening Session</a> starts at 10am -- don’t miss it!</p>
+    
+    <h2>What should I bring?</h2>
+    
+    <p>
+        Please help us keep TransparencyCamp as green as possible by bringing a water bottle and/or coffee mug to help keep waste down.
+        Power strips and chargers for your computer, phone, etc. are also never bad ideas.
+        If you’re planning to use a projector during a presentation, please bring your own <em>VGA adaptor</em>.
+        Every room will have a projector, but we can’t promise we’ll have the right adaptors for your computer.
+        If you need to purchase an adaptor, there is an <a href="http://goo.gl/maps/2v9j">Apple Store</a> near the Bethesda Metro station and a <a href="http://goo.gl/maps/1WfY">Best Buy</a> at the Tenleytown-AU Metro station.
+    </p>
+    
+    <h2>What should I wear?</h2>
+    
+    <p>
+        Check the <a href="http://www.washingtonpost.com/blogs/capital-weather-gang">Capitol Weather Gang blog</a> for the latest weather conditions.
+        Dress for the Camp is casual -- just be comfortable.
+    </p>
+    
+    <h2>Will there be internet?</h2>
+    
+    <p>Yes, we'll have wireless provided. Cell phone reception inside the building isn’t great, though.</p>
+
+{% endblock %}
+
+{% block js %}
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;v=3.2"></script>
+    <script>
+        var map;
+        $(document).ready(function() {
+            var loc = new google.maps.LatLng(38.961, -77.086);
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: loc,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            var marker = new google.maps.Marker({
+                position: loc, 
+                map: map, 
+                title: "Microsoft"
+            });
+        });
+    </script>
+
+{% endblock %}

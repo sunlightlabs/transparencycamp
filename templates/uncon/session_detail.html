@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block body %}schedule{% endblock %}
+
+{% block content %}
+    
+    {% with object.article.versions.latest as wiki %}
+        <article class="session">
+            <header>
+                <h1>{{ object.title }}</h1>
+                <dl>
+                    <dt>When</dt>
+                    <dd>
+                        <time datetime="{{ object.date.isoformat }}">{{ object.date|date:"l" }}</time>,
+                        <time datetime="{{ object.start_time.isoformat }}">{{ object.start_time }}</time>
+                        {% if object.end_time %}
+                            &mdash; <time datetime="{{ object.end_time.isoformat }}">{{ object.end_time }}</time>
+                        {% endif %}
+                    </dd>
+                    <dt>Where</dt>
+                    <dd>{{ object.location }}</dd>
+                    {% if object.organized_by %}
+                        <dt>Organized by</dt>
+                        <dd>{{ object.organized_by }}</dd>
+                    {% endif %}
+                </dl>
+            </header>
+            <div class="details">
+                {{ object.description|markdown }}
+            </div>
+            {% if object.has_wiki %}
+                <div class="wiki">
+                    {% if object.article.status == 0 %}
+                        <a href="{% url edit_article object.article.title %}" class="editlink" title="edit wiki">edit wiki</a>
+                    {% endif %}
+                    {{ wiki.body }}
+                </div>
+            {% endif %}
+        </article>
+    {% endwith %}
+    
+{% endblock %}

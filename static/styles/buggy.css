@@ -1,0 +1,28 @@
+li#nav_logistics a {  background: url("../images/nav_logistics_8.png") bottom left no-repeat;}
+li#nav_logistics a:hover, body.logistics li#nav_logistics a{  background: url("../images/nav_logistics_8.png") top left no-repeat;}
+
+li#nav_schedule a {  background: url("../images/nav_schedule_8.png") bottom left no-repeat;}
+li#nav_schedule a:hover, body.schedule li#nav_schedule a{  background: url("../images/nav_schedule_8.png") top left no-repeat;}
+
+li#nav_sponsors a {  background: url("../images/nav_sponsors_8.png") bottom left no-repeat;}
+li#nav_sponsors a:hover, body.sponsors li#nav_sponsors a{  background: url("../images/nav_sponsors_8.png") top left no-repeat;}
+
+
+h1 a{  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo.png", sizingMethod="crop"); }
+div#wikiBtn a{  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/wikiButton.png", sizingMethod="crop"); }
+
+h1{margin-left: 30px;}
+
+li#sunlightFooter a{  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/sunlightLogo.png", sizingMethod="crop"); }
+li#istrategyFooter a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/istrategyLogo.png", sizingMethod="crop"); }
+
+li#clickhelp a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_clickforhelp.png", sizingMethod="crop"); }
+li#microsoft a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_microsoft.png", sizingMethod="crop"); }
+li#mindtouch a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_mindtouch.png", sizingMethod="crop"); }
+li#reno a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_reno.png", sizingMethod="crop"); }
+
+li#whitehouse a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_whitehouse.png", sizingMethod="crop"); }
+li#centerforinfo a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_centerforinfo.png", sizingMethod="crop"); }
+li#acquia a {  background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/logo_acquia.png", sizingMethod="crop"); }
+
+body.schedule dl{ margin: 0 20px;}

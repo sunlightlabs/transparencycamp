@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block body %}community donate{% endblock %}
+
+{% block content %}
+
+    <h2>Support TransparencyCamp 2011</h2>
+    
+    <p>Since the first TransparencyCamp was held a few years ago, we've watched interest and passion in government transparency and openness spread across the country. Passionate and committed activists — everywhere from Cuyahoga County, Ohio to Sag Harbor, New York, to Manor, Texas — are fighting to make their government more open and accountable.</p>
+
+    <p>At this year's TransparencyCamp, we want to highlight the great work happening all around the country and help build a network for these local activists to share their experiences, learn new best practices and build relationships to strengthen the movement.</p>
+
+    <p>The biggest challenge to making that happen is simply getting those activists — old and new — to the conference. When we asked in a survey what would keep people from getting to TransparencyCamp this year, the most common reason listed — by far — was cost. From the beginning, we've strongly committed to making sure that participation in TransparencyCamp is open to everyone, regardless of ability to pay. And this year, we're taking that commitment a step further.</p>
+
+    <p>For many volunteers and activists around the country, open government advocacy is a labor of love, but doesn't provide much in the way of financial compensation. And traveling to Washington, DC can be expensive. We don't want to lose out on the energy, enthusiasm or expertise of many of these local leaders. So this year, we'll provide select emerging leaders in the transparency movement with scholarships to help them get to TransparencyCamp 2011.</p> 
+
+    <p>Any donations you make through this page will go exclusively to a scholarship fund that will help defray the cost of attending TransparencyCamp for someone that is doing awesome work in their community, but otherwise wouldn't be able to attend.</p>
+
+    <p>Help us grow the movement for a more transparent and accountable by contributing to our scholarship fund.</p>
+    
+    <div id="donate">
+        <script type="text/javascript"> 
+        function validateAmount(amount){
+        	if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
+        		return true;
+        	}else{
+        		alert('You must enter a valid donation.');
+        		amount.focus();
+        		return false;
+        	}
+        }
+        </script>
+        <form action="https://checkout.google.com/cws/v2/Donations/548702786961191/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
+            <input name="item_name_1" type="hidden" value="TransparencyCamp 2011 scholarships"/>
+            <input name="item_description_1" type="hidden" value="Donations for TCamp '11 stipends"/>
+            <input name="item_quantity_1" type="hidden" value="1"/>
+            <input name="item_currency_1" type="hidden" value="USD"/>
+            <input name="item_is_modifiable_1" type="hidden" value="true"/>
+            <input name="item_min_price_1" type="hidden" value="0.01"/>
+            <input name="item_max_price_1" type="hidden" value="25000.0"/>
+            <input name="_charset_" type="hidden" value="utf-8"/>
+            <table cellpadding="5" cellspacing="0" width="1%">
+                <tr>
+                    <td align="right" nowrap="nowrap" width="1%">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color='black'; this.value='';" size="6" type="text" value="25.00"/>
+                    </td>
+                    <td align="left" width="1%">
+                        <input id="donateBtn" alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=548702786961191&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <p class="tip">**Applications for scholarships will be available soon.</p>
+{% endblock %}

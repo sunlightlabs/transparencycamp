@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}schedule{% endblock %}
+
+{% block content %}
+
+    <h2>Schedule</h2>
+        
+    {% regroup object_list by date as date_list %}
+    
+    {% for date in date_list %}
+    
+        <div class="date-group">
+    
+            <h3 class="grouper">{{ date.grouper|date:"l, F d" }}</h3>
+    
+            {% regroup date.list by start_time as time_list %}
+        
+            {% for time in time_list %}
+            
+                <div class="time-group">
+        
+                    <h4 class="grouper">{{ time.grouper|time:"g:i a" }}</h4>
+            
+                    <ul class="sessions">
+                        {% for session in time.list %}
+                            <li><a href="/sessions/{{ session.pk }}/">{{ session }}</a> <small>{{ session.location }}</small></li>
+                        {% endfor %}
+                    </ul>
+                
+                </div>
+        
+            {% endfor %}
+        
+        </div>
+    
+    {% endfor %}
+        
+{% endblock %}
