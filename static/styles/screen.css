@@ -25,6 +25,7 @@ body{
 #rtColumn .section  { background: url(../images/line_sidebar.png) center bottom no-repeat; margin-bottom: 35px; padding-bottom: 50px; }
 
 #callOut { position: relative; padding: 10px 20px; background-color: #f7f7f7; border: 1px solid #d7dbde; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; width: 400px; margin: 0 auto; }
+#callOut h3 { margin-top: 1em; }
 
 .viewMore { font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; font-size: 110%; margin-top: 15px; display: block;}
 

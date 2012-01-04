@@ -4,23 +4,14 @@
 
 {% block content %}
 
-    <div id="callOut" style="margin-bottom: 2em;"> 
-        <h3>TransparencyCamp is over!</h3>
-        <p>Thanks to everyone that made TransparencyCamp such a huge success. Double thanks goes to Microsoft for letting us use their amazing space!</p> 
-    </div>
+    <h2>Where is Transparency Camp?</h2>
 
-    <h2>Where is TransparencyCamp?</h2>
-
-    <h3>Microsoft</h3>
-    <p><a href="http://goo.gl/maps/NrFg" title="Google Maps">5404 Wisconsin Avenue, Chevy Chase, MD 20815</a></p>
-    
-    <p>
-        Microsoft’s building is literally steps away from the <a href="http://wmata.com/rail/station_detail.cfm?station_id=11">Friendship Heights</a> metro stop -- just make sure that you exit on the Western Ave side of the metro and head up the stairs toward Wisconsin Ave., Western Ave., and Bloomingdale’s.
-        There’s also parking underneath the building for $7 a day and some metered street parking.
-        If you get lost, look for the folks dressed as <a href="http://transbearency.com/">bears</a> to help you (they’ll be outside the building during registration to help you find your way).
-    </p>
+    <h3>Founders Hall, George Mason University</h3>
+    <p><a href="http://g.co/maps/v8ncv" title="Google Maps">3351 Fairfax Drive, Arlington, VA</a></p>
     
     <div id="map"></div>
+
+    {% comment %}
 
     <h2>When do I need to get there?</h2>
     
@@ -29,7 +20,7 @@
     <h2>What should I bring?</h2>
     
     <p>
-        Please help us keep TransparencyCamp as green as possible by bringing a water bottle and/or coffee mug to help keep waste down.
+        Please help us keep Transparency Camp as green as possible by bringing a water bottle and/or coffee mug to help keep waste down.
         Power strips and chargers for your computer, phone, etc. are also never bad ideas.
         If you’re planning to use a projector during a presentation, please bring your own <em>VGA adaptor</em>.
         Every room will have a projector, but we can’t promise we’ll have the right adaptors for your computer.
@@ -47,6 +38,8 @@
     
     <p>Yes, we'll have wireless provided. Cell phone reception inside the building isn’t great, though.</p>
 
+    {% endcomment %}
+
 {% endblock %}
 
 {% block js %}
@@ -55,7 +48,7 @@
     <script>
         var map;
         $(document).ready(function() {
-            var loc = new google.maps.LatLng(38.961, -77.086);
+            var loc = new google.maps.LatLng(38.88499, -77.10109);
             map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: loc,
