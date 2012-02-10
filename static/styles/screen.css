@@ -35,11 +35,57 @@ div#pageMain { 	margin: 0 auto; width: 960px; background: url(../images/headerBg
 div#mainHeader h1 { margin: 40px 0 0 40px; float: left; width: 237px; height: 77px; }
 div#mainHeader h1 a { display: block; text-indent: -9999em; width: 237px; height: 77px; background: url(../images/logo.png) top center no-repeat; }
 
-div#nav { float: left; margin-left: 325px; }
+div#nav { float: left; margin-left: 230px; }
 div#nav li{ float: left; }
-div#nav li a { height: 35px; text-indent: -9999em; display: block; width: 145px; }
+div#nav li a {
+	background: #dfe1e3;
+	background: -webkit-linear-gradient(#e3e6e9, #d8dade);
+	background:    -moz-linear-gradient(#e3e6e9, #d8dade);
+	background:     -ms-linear-gradient(#e3e6e9, #d8dade);
+	background:      -o-linear-gradient(#e3e6e9, #d8dade);
+	background:         linear-gradient(#e3e6e9, #d8dade);
+	border: 1px solid #bdc4c6;
+	border-bottom: 0;
+	border-radius: 5px 5px 0 0;
+	color: #999;
+	display: block;
+	font-size: 110%;
+	margin: 0 0.2em;
+	padding: 0.5em 0;
+	text-align: center;
+	text-decoration: none;
+	width: 110px;
+}
+div#nav li a:hover {
+	background: #203345;
+	background: -webkit-linear-gradient(#203345 60%, #132739 60%);
+	background:    -moz-linear-gradient(#203345 60%, #132739 60%);
+	background:     -ms-linear-gradient(#203345 60%, #132739 60%);
+	background:      -o-linear-gradient(#203345 60%, #132739 60%);
+	background:         linear-gradient(#203345 60%, #132739 60%);
+	border: 1px solid #162f3d;
+	border-bottom: 0;
+	color: #ddd;
+}
 
-li#nav_logistics a { background: url(../images/nav_logistics.png) left bottom no-repeat; }
+body.logistics li#nav_logistics a,
+body.schedule li#nav_schedule a,
+body.sponsors li#nav_sponsors a,
+body.multimedia li#nav_videos a,
+body.register li#nav_register a,
+body.community li#nav_community a,
+body.hackathon li#hackathon a {
+	background: #203345;
+	background: -webkit-linear-gradient(#203345 60%, #132739 60%);
+	background:    -moz-linear-gradient(#203345 60%, #132739 60%);
+	background:     -ms-linear-gradient(#203345 60%, #132739 60%);
+	background:      -o-linear-gradient(#203345 60%, #132739 60%);
+	background:         linear-gradient(#203345 60%, #132739 60%);
+	border: 1px solid #162f3d;
+	border-bottom: 0;
+	color: #ddd;
+}
+/*li#nav_logistics a { background: url(../images/nav_logistics.png) left bottom no-repeat; }
 li#nav_logistics a:hover, body.logistics li#nav_logistics a { background: url(../images/nav_logistics.png) left top no-repeat; }
 
 li#nav_schedule a { background: url(../images/nav_schedule.png) left bottom no-repeat; }
@@ -56,7 +102,7 @@ li#nav_register a:hover, body.register li#nav_register a { background: url(../im
 
 li#nav_community a { background: url(../images/nav_community.png) left bottom no-repeat;}
 li#nav_community a:hover, body.community li#nav_community a { background: url(../images/nav_community.png) left top no-repeat; }
-
+*/
 div#mainContent { width: 901px; padding-left: 30px; margin-left: 30px; min-height: 500px; background: url(../images/contentBg.png) left top no-repeat;}
 
 body.logistics div#mainContent,
@@ -429,9 +475,7 @@ div.share iframe { display: block; margin: 1em 0; }
 div#ltColumn #donate table { margin-bottom: 0;}
 #donateBtn { margin-top: 20px;}
 
-#donateAsk p { text-align: center;}
-#donateAsk { font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; font-size: 110%;}
-#donateAsk_btn { background: url(../images/btn_help.png) left center no-repeat; display: block; width: 258px; height: 81px; text-indent: -9999em; margin-top: 15px;}
+#donateAsk p { text-align: center; font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; font-size: 110%;}
 
 article.session ol {
 	list-style: decimal outside none;
@@ -519,3 +563,63 @@ ul.sessions { margin: 1em 0 1em 2em; }
 ul.sessions > li { margin: 0.5em 0; }
 
 li.markuptype { display: none; }
+
+a.btn {
+  background: #203345;
+  background: -webkit-linear-gradient(#203345 60%, #132739 60%);
+  background:    -moz-linear-gradient(#203345 60%, #132739 60%);
+  background:     -ms-linear-gradient(#203345 60%, #132739 60%);
+  background:      -o-linear-gradient(#203345 60%, #132739 60%);
+  background:         linear-gradient(#203345 60%, #132739 60%);
+  border: 2px solid #fff;
+  color: #dddfe1;
+  display: block;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 110%;
+  margin: 1em 0;
+  padding: 1em 2em;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  -webkit-box-shadow: 0 0 10px #999;
+     -moz-box-shadow: 0 0 10px #999;
+      -ms-box-shadow: 0 0 10px #999;
+       -o-box-shadow: 0 0 10px #999;
+          box-shadow: 0 0 10px #999;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a.btn span { display: block; }
+
+a#register { font-size: 140%; font-weight: bold; text-transform: uppercase; }
+a#register-hackathon { font-size: 140%; font-weight: bold; text-transform: uppercase; padding-left: 0; padding-right: 0;}
+
+div#ltColumn p.bq {
+	border-left: 1px solid #666;
+	color: #333;
+	font-family: "Georgia", "Times New Roman", "Times", serif;
+	font-size: 120%;
+	font-style: oblique;
+	line-height: 150%;
+	padding: 0.2em 1.5em;
+	margin: 2em 0;
+}
+
+img.viplogo {
+	border: 1px solid #bdc4c6;
+	float: right;
+	margin: 0.8em 1em 0 1em;
+	height: 199px;
+	width: 200px;
+}
+
+#rtColumn .section ul {
+	list-style: disc none outside;
+	margin: 1em 0 0 1.5em;
+}
+#rtColumn .section li {
+	margin: 0.5em 0;
+}
