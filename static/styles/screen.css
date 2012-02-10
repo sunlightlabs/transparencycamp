@@ -623,3 +623,5 @@ img.viplogo {
 #rtColumn .section li {
 	margin: 0.5em 0;
 }
+
+p.donate-btn a.btn { margin: 1em 4em; width: auto; }

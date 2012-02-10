@@ -17,8 +17,9 @@
     <p>Any donations you make through this page will go exclusively to a scholarship fund that will help defray the cost of attending Transparency Camp for someone that is doing awesome work in their community, but otherwise wouldn't be able to attend.</p>
 
     <p class="bq">“I’m glad I went to transparency camp,” Scholar Tracy Dingmann wrote in a follow-up blogpost. “Not only did I renew my passion for open and transparent government – I picked up a whole new panopoly (okay, I am a nerd) of new tools and resources to get public information and put it where it belongs – in front of you.”</p> 
-    
-    <div id="donate">
+    <p class="donate-btn"><a class="btn" href="http://tcamp12.eventbrite.com/">Donate by registering as a Super Camper</a></p>
+
+    {% comment %}
         <script type="text/javascript"> 
         function validateAmount(amount){
         	if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
@@ -49,7 +50,7 @@
                 </tr>
             </table>
         </form>
-    </div>
+    {% endcomment %}
 
     <p class="tip">**Applications for scholarships will be available soon.</p>
 {% endblock %}
