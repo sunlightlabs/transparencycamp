@@ -14,4 +14,4 @@ Got slides, photos, resources, videos, or other links of relevance to your sessi
 
 Feel free to use this space to take public notes on your session and/or include a URL to another page with notes.
 
-[Transparency Camp](http://transparencycamp.org)
+[TransparencyCamp](http://transparencycamp.org)
