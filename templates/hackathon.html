@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load media %}
 
 {% block body %}hackathon{% endblock %}
 
@@ -10,11 +11,8 @@
     <img src="http://assets.sunlightfoundation.com/files/VIP%20Hackathon/VIPLogoBox_Small.jpg" class="viplogo">
 
     <p>For years, high quality information about one of our democracy’s most critical activities has been nearly impossible to come by -- that is, until the <a href="http://votinginfoproject.org/">Voting Information Project</a> (VIP) was born. The Pew Center on the States launched this initiative in 2008 to become the 21st century transmission line between election offices and voters. VIP answers voters’ most common questions -- things like “where do I vote?”, “who is on my ballot?”, and “how do I navigate the voting process?” -- by making official information available in the places where voters are looking for it, whether online or on their mobile devices.</p>
-
     <p>Now, in this hot-button election year, Pew and their partners at Microsoft, Google, and AT&amp;T are inviting you to roll up your sleeves and help make a difference. <b>On April 30, 2012, join Pew, Microsoft, the Sunlight Foundation, and many others as we unleash the potential of this amazing and timely collection of civic data.</b></p>
-
     <p>What tools do you need to be a better citizen? What app would get your friends out to the voting booth? What data would benefit your local board of elections? Come mash, hack, and mindmeld with other civic hackers and problem-solve these and other exciting questions.</p>
-
     <p>For more information on the Voting Information Project, <a href="http://votinginfoproject.org/">head here</a> or check out the video below. Itching to get started? <a href="http://viphackathon.eventbrite.com/">Register now!</a></p>
 
     <p><iframe width="500" height="284" src="http://www.youtube.com/embed/Th7VJoRqAzI" frameborder="0" allowfullscreen></iframe></p>
@@ -33,6 +31,15 @@
                 <li><a href="http://github.com/votinginfoproject">VIP GitHub</a></li>
                 <li><a href="http://prodvip.blob.core.windows.net/publicvip/VipServiceDoc.htm">Microsoft API Documentation</a></li>
                 <li>Hackathon wiki</li>
+            </ul>
+        </div>
+        <div class="section">
+            <p>The VIP Hackathon is brought to you by the Pew Center on the States and their partners:</p>
+            <ul id="sponsor_sideList">
+                <li><a href="http://www.pewcenteronthestates.org/"><img src="{% media_url "images/sponsors/pew_sm.png" %}" alt="Pew Charitable Trusts"></a></li>
+                <li><a href="http://google.com/"><img src="{% media_url "images/sponsors/google_sm.png" %}" alt="Google"></a></li>
+                <li><a href="http://microsoft.com/"><img src="{% media_url "images/sponsors/microsoft_sm.png" %}" alt="Microsoft"></a></li>
+                <li><a href="http://sunlightfoundation.com/"><img src="{% media_url "images/sponsors/sf_sm.png" %}" alt="Sunlight Foundation"></a></li>
             </ul>
         </div>
     </div>

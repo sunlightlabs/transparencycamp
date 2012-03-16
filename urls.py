@@ -26,6 +26,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^logistics/$', "direct_to_template", {'template': 'logistics.html'}),
     url(r'^schedule/$', "redirect_to", {'url': '/sessions/'}),
     url(r'^sponsors/$', "direct_to_template", {'template': 'sponsors.html'}),
+    url(r'^sponsors/info/$', "direct_to_template", {'template': 'sponsors_info.html'}),
     url(r'^staff/$', "redirect_to", {'url': '/staff/login/'}),
     url(r'^survey/$', "redirect_to", {'url': 'http://local.publicequalsonline.com/page/signup/TransparencyCamp_Survey'}),
 )

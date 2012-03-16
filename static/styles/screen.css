@@ -258,13 +258,10 @@ body.schedule dl{ margin: 0 20px;}
 
 div.schedule h2{ font-size: 110%; margin-top: 20px;}
 
-.sponsorsList { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #dbdfe3;}
-.sponsorsList a{ text-indent: -9999em; display: block;}
+.sponsorsList { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #dbdfe3; }
+.sponsorsList li { margin: 2em 0; }
 
 div#fullSponsors { background: #fff; padding: 20px 20px 20px; margin-top: 2em; }
-
-.sponsorsList #microsoft { width: 291px; height: 48px; margin-left: 20px;}
-.sponsorsList #microsoft a { width: 291px; height: 48px; background: url(../images/logo_microsoftLg.jpg) center bottom no-repeat;}
 
 li#sunlightfoundation a{ background: url(../images/logo_sunlightfoundation.jpg) center bottom no-repeat; width: 230px; height: 143px; }
 li#sunlightfoundation { width: 230px; height: 143px; margin: 46px 0;}
@@ -284,18 +281,15 @@ li#google { width: 230px; height: 80px;}
 li#governing { width: 242px; height: 37px; margin: 50px 0 30px 20px;}
 li#governing a { width: 242px; height: 37px; background: url(../images/logo_governingLg.jpg) top left no-repeat; }
 
-#sponsor_sideList a { text-indent: -9999em; display: block;}
-#sponsor_sideList #microsoft { width: 126px; height: 22px; margin: 0 auto 20px;}
-#sponsor_sideList #microsoft a { width: 126px; height: 22px; background: url(../images/logo_microsoftSm.png) top left no-repeat; }
-
-#sponsor_sideList #google { width: 103px; height: 42px; float: left; margin-right: 15px;}
-#sponsor_sideList #google a { width: 103px; height: 42px; background: url(../images/logo_googleSm.png) top left no-repeat; }
-
-#sponsor_sideList #oreilly { width: 113px; height: 24px; margin: 0; float: left;}
-#sponsor_sideList #oreilly a { width: 113px; height: 24px; background: url(../images/logo_oreillySm.png) left  no-repeat; }
-
-#sponsor_sideList #governing { width: 141px; height: 22px; margin: 0; float: left;}
-#sponsor_sideList #governing a { width: 141px; height: 22px; background: url(../images/logo_governing.png) top left no-repeat; margin-top: 5px;}
+#sponsor_sideList {
+	background-color: #fff;
+	border-radius: 5px;
+	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#sponsor_sideList li { list-style: none; padding: 1em 1em; }
 
 /*
 li#istrategylabs a{ background: url(../images/logo_istrategylabs.jpg) center bottom no-repeat; width: 230px; height: 235px; }
