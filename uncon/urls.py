@@ -12,5 +12,6 @@ api.register(PhotoResource())
 urlpatterns = patterns('',
     url(r'^sessions/$', 'transparencycamp.uncon.views.session_list'),
     url(r'^sessions/(?P<pk>\d+)/$', 'transparencycamp.uncon.views.session_detail', name='session_detail'),
+    url(r'^sessions/(?P<con_slug>\w+)/$', 'transparencycamp.uncon.views.session_list'),
     url(r'^', include(api.urls)),
 )
