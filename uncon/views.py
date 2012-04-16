@@ -14,8 +14,8 @@ def session_detail(request, pk, template_name=None):
         kwargs['template_name'] = template_name
     return object_detail(request, **kwargs)
 
-def session_list(request, template_name=None):
-    sessions = Session.objects.all()
+def session_list(request, con_slug=None, template_name=None):
+    sessions = Session.objects.filter(conference__slug=con_slug or '2012')
     kwargs = {
         'queryset': sessions,
     }

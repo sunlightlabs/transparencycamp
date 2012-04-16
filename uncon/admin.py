@@ -10,7 +10,7 @@ admin.site.register(Conference, ConferenceAdmin)
 class SessionAdmin(admin.ModelAdmin):
     list_display = ('title','location','date','start_time','end_time','has_wiki')
     list_editable = ('has_wiki',)
-    list_filter = ('date','has_wiki')
+    list_filter = ('date','has_wiki','conference')
     prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('article',)
 admin.site.register(Session, SessionAdmin)
