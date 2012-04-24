@@ -30,12 +30,9 @@
                 {{ object.description|markdown }}
             </div>
             {% if object.has_wiki %}
-                <div class="wiki">
-                    {% if object.article.status == 0 or request.user.is_authenticated %}
-                        <a href="{% url edit_article object.article.title %}" class="editlink" title="edit wiki">edit wiki</a>
-                    {% endif %}
-                    {{ wiki.body }}
-                </div>
+                <p>
+                    <a href="http://pad.transparencycamps.org/p/{{ object.slug }}">Edit wiki</a>
+                </p>
             {% endif %}
         </article>
     {% endwith %}
