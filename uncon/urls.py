@@ -4,6 +4,8 @@ from transparencycamp.uncon.resources import (
     SessionResource, UpdatesResource, SocialFeedResource, PhotoResource)
 
 api = Api(api_name='api')
+# api.register(CurrentConferenceResource())
+# api.register(ConferenceResource())
 api.register(SessionResource())
 api.register(UpdatesResource())
 api.register(SocialFeedResource())

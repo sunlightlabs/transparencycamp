@@ -6,42 +6,48 @@ from tastypie.resources import ModelResource
 from transparencycamp.uncon.models import Conference, Session, Summize, Tweet, Twitterer, FlickrPhoto
 import datetime
 
+class CurrentConferenceResource(ModelResource):
+    class Meta:
+        queryset = Conference.objects.current_conference()
+        resource_name = "current_conference"
+
 class ConferenceResource(ModelResource):
     class Meta:
         queryset = Conference.objects.all()
         resource_name = "conferences"
 
+
 class SessionResource(ModelResource):
     class Meta:
-        excludes = ('has_wiki',)
+        excludes = ('has_wiki', )
         filtering = {
-            'slug': ('exact',),
-            'location': ('exact',),
-            'date': ('exact','gt','gte','lt','lte'),
-            'start_time': ('exact','gt','gte','lt','lte'),
-            'end_time': ('exact','gt','gte','lt','lte'),
+            'slug': ('exact', ),
+            'location': ('exact', ),
+            'date': ('exact', 'gt', 'gte', 'lt', 'lte'),
+            'start_time': ('exact', 'gt', 'gte', 'lt', 'lte'),
+            'end_time': ('exact', 'gt', 'gte', 'lt', 'lte'),
         }
         queryset = Conference.objects.current_conference().sessions.all()
         resource_name = "sessions"
-    
+
     def serialize(self, request, data, format, options=None):
         resp = super(SessionResource, self).serialize(request, data, format, options)
         return resp
-    
+
     def dehydrate(self, x):
         x.data['url'] = "http://transparencycamp.org/sessions/%s/" % x.data['id']
         return x
-    
+
     def build_filters(self, filters=None):
-        
+
         if filters is None:
             filters = {}
-        
+
         orm_filters = super(SessionResource, self).build_filters(filters)
-        
+
         now = datetime.datetime.now() - datetime.timedelta(0, 60 * 15)
         con = Conference.objects.current_conference()
-        
+
         if "today" in filters:
             orm_filters['date'] = now.date()
         elif "latertoday" in filters:
@@ -53,9 +59,9 @@ class SessionResource(ModelResource):
             next_timeslot = con.next_timeslot(now.date(), now.time())
             orm_filters['date'] = now.date()
             orm_filters['start_time'] = next_timeslot
-        
+
         return orm_filters
-        
+
 
 class PhotoResource(ModelResource):
     class Meta:
@@ -95,7 +101,7 @@ class PhotoResource(ModelResource):
 
         params['size'] = 'o'
         x.data['url_original'] = url_format % params
-        
+
         x.data['url'] = "http://www.flickr.com/photos/%(owner)s/%(id)s" % params
 
         return x
@@ -103,13 +109,14 @@ class PhotoResource(ModelResource):
 
 class TwittererResource(ModelResource):
     class Meta:
-        excludes = ('id','full_name','twitter_id')
+        excludes = ('id', 'full_name', 'twitter_id')
         include_resource_uri = False
         queryset = Twitterer.objects.all()
 
+
 class AbstractTweetResource(ModelResource):
     user = fields.ToOneField(TwittererResource, 'user', full=True)
-    
+
     def dehydrate(self, x):
         url = "http://twitter.com/%s/status/%s"
         x.data['content'] = urlize(x.data['content'])
@@ -117,19 +124,20 @@ class AbstractTweetResource(ModelResource):
         x.data['url'] = url % (x.data['user'].data['screen_name'], x.data['twitter_id'])
         return x
 
+
 class UpdatesResource(AbstractTweetResource):
     class Meta:
         filtering = {
-            'timestamp': ('exact','gt','gte','lt','lte'),
-            'twitter_id': ('exact',),
+            'timestamp': ('exact', 'gt', 'gte', 'lt', 'lte'),
+            'twitter_id': ('exact', ),
         }
         queryset = Tweet.objects.filter(user__screen_name="TCampDC")
+
 
 class SocialFeedResource(AbstractTweetResource):
     class Meta:
         filtering = {
-            'timestamp': ('exact','gt','gte','lt','lte'),
+            'timestamp': ('exact', 'gt', 'gte', 'lt', 'lte'),
             'twitter_id': ('exact',),
         }
         queryset = Tweet.objects.filter(summize__slug="socialfeed")
-

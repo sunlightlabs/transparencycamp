@@ -4,6 +4,7 @@ from transparencycamp.uncon.models import Session
 from markupwiki.models import Article
 from markupwiki.views import view_article
 
+
 def session_detail(request, pk, template_name=None):
     sessions = Session.objects.all()
     kwargs = {
@@ -14,6 +15,7 @@ def session_detail(request, pk, template_name=None):
         kwargs['template_name'] = template_name
     return object_detail(request, **kwargs)
 
+
 def session_list(request, con_slug=None, template_name=None):
     sessions = Session.objects.filter(conference__slug=con_slug or '2012')
     kwargs = {
@@ -22,6 +24,7 @@ def session_list(request, con_slug=None, template_name=None):
     if template_name:
         kwargs['template_name'] = template_name
     return object_list(request, **kwargs)
+
 
 def wiki_redirect(request, day, title):
     title = "2011/dc/%s/%s" % (day, title)
