@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 10
+# version 11
 
 CACHE:
 /mobile/css/style.css
@@ -11,7 +11,10 @@ CACHE:
 /mobile/img/m/apple-touch-icon.png
 /mobile/img/dancingpanda.gif
 /mobile/img/header.png
-/mobile/img/map-sm.png
+/mobile/img/2012/map-1-sm.png
+/mobile/img/2012/map-2-sm.png
+/mobile/img/2012/map-3-sm.png
+/mobile/img/2012/map-4-sm.png
 /mobile/img/placeholder_75x75px.png
 /mobile/js/libs/json2.js
 /mobile/js/libs/modernizr-custom.js
