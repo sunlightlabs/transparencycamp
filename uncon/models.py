@@ -20,6 +20,11 @@ class ConferenceManager(models.Manager):
             except ValueError:
                 pass  # int conversion failed, fall through and return None
 
+    # Use Conference.objects.current() when you want an actual qset returned
+    def current(qset):
+        cid = getattr(settings, 'CURRENT_CONFERENCE_ID', None)
+        return qset.filter(pk=int(cid))
+
 
 class Conference(models.Model):
     objects = ConferenceManager()

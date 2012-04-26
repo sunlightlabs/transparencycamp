@@ -6,10 +6,12 @@ from tastypie.resources import ModelResource
 from transparencycamp.uncon.models import Conference, Session, Summize, Tweet, Twitterer, FlickrPhoto
 import datetime
 
+
 class CurrentConferenceResource(ModelResource):
     class Meta:
-        queryset = Conference.objects.current_conference()
+        queryset = Conference.objects.current()
         resource_name = "current_conference"
+
 
 class ConferenceResource(ModelResource):
     class Meta:

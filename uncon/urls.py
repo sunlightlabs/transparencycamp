@@ -1,11 +1,12 @@
 from django.conf.urls.defaults import patterns, include, url
 from tastypie.api import Api
 from transparencycamp.uncon.resources import (
-    SessionResource, UpdatesResource, SocialFeedResource, PhotoResource)
+    CurrentConferenceResource, ConferenceResource, SessionResource,
+    UpdatesResource, SocialFeedResource, PhotoResource)
 
 api = Api(api_name='api')
-# api.register(CurrentConferenceResource())
-# api.register(ConferenceResource())
+api.register(CurrentConferenceResource())
+api.register(ConferenceResource())
 api.register(SessionResource())
 api.register(UpdatesResource())
 api.register(SocialFeedResource())
