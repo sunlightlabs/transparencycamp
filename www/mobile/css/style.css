@@ -332,7 +332,7 @@ div.panel > p {
 
 div#panel-venue img {
 	margin: 1em 0;
-  max-width: 315px;
+  max-width: 100%;
 }
 
 /*
