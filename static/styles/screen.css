@@ -524,6 +524,10 @@ article.session dt:after {
 article.session dd p {
 	display: inline
 }
+article iframe#etherpad {
+	width:530px;
+	height:400px;
+}
 
 div.article_meta {
 	padding: 10px 10px;
