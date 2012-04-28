@@ -521,6 +521,9 @@ article.session dt {
 article.session dt:after {
 	content: ":";
 }
+article.session dd p {
+	display: inline
+}
 
 div.article_meta {
 	padding: 10px 10px;
