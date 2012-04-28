@@ -74,7 +74,7 @@ class Session(models.Model):
 
     class Meta:
         unique_together = ('conference', 'slug')
-        ordering = ('date', 'start_time', 'slug', )
+        ordering = ('date', 'start_time', 'location', 'slug', )
 
     def __unicode__(self):
         return self.title
