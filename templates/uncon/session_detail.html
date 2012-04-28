@@ -22,7 +22,7 @@
                     <dd>{{ object.location }}</dd>
                     {% if object.organized_by %}
                         <dt>Organized by</dt>
-                        <dd>{{ object.organized_by }}</dd>
+                        <dd>{{ object.organized_by|markdown }}</dd>
                     {% endif %}
                 </dl>
             </header>
