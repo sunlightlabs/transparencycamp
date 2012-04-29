@@ -19,8 +19,8 @@
 
     {# SORRY: If within the date range of the conference, hide previous days. Otherwise, show all days #}
     {% if current_date >= conference.start_date and current_date <= conference.end_date %}
-    <!-- {{ date.date }} -->
-    {% if date.date < current_date %}
+    <!-- {{ date.grouper }} -->
+    {% if date.list.0.date < current_date %}
     <div id="day-{{ date.grouper|slugify }}" class="date-group" style="display:none">    
     {% else %}
     <div id="day-{{ date.grouper|slugify }}" class="date-group">
