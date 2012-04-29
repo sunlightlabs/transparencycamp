@@ -565,7 +565,7 @@ ul.sessions > li { margin: 0.5em 0; }
 
 li.markuptype { display: none; }
 
-a.btn {
+a.btn, a.btn-inline {
   background: #203345;
   background: -webkit-linear-gradient(#203345 60%, #132739 60%);
   background:    -moz-linear-gradient(#203345 60%, #132739 60%);
@@ -593,7 +593,17 @@ a.btn {
           box-sizing: border-box;
 }
 
+.btn-group {
+    margin-bottom: 15px;
+}
+
 a.btn span { display: block; }
+
+a.btn-inline {
+    width: auto;
+    float: left;
+    margin-right: 25px;
+}
 
 a#register { font-size: 140%; font-weight: bold; text-transform: uppercase; }
 a#register-hackathon { font-size: 140%; font-weight: bold; text-transform: uppercase; padding-left: 0; padding-right: 0;}
