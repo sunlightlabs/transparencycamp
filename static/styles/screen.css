@@ -15,8 +15,25 @@ body{
 	color:#6c6d6e;
 	background: #eef1f6;
 	font-size: 82%;
-  	line-height: 22px;
-  	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 22px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
 }
 
 .donate p { margin-bottom: 1em;}
@@ -595,6 +612,7 @@ a.btn, a.btn-inline {
 
 .btn-group {
     margin-bottom: 15px;
+    display:block;
 }
 
 a.btn span { display: block; }
