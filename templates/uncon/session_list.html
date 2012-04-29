@@ -15,9 +15,20 @@
     </ul>
     
     {% for date in date_list %}
-    
+
+    {# SORRY: If within the date range of the conference, hide previous days. Otherwise, show all days #}
+    {% if current_date >= conference.start_date and current_date <= conference.end_date %}
+
+    {% if date < current_date %}
+    <div id="day-{{ date.grouper|slugify }}" class="date-group" style="display:none">    
+    {% else %}
+    <div id="day-{{ date.grouper|slugify }}" class="date-group">
+    {% endif %}
+
+    {% else %}
         <div id="day-{{ date.grouper|slugify }}" class="date-group">
-    
+    {% endif %}
+
             <h3 class="grouper">{{ date.grouper|date:"l, F d" }}</h3>
     
             {% regroup date.list by start_time as time_list %}

@@ -1,6 +1,9 @@
+import datetime
+
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.views.generic.list_detail import object_detail, object_list
-from transparencycamp.uncon.models import Session
+from transparencycamp.uncon.models import Session, Conference
 from markupwiki.models import Article
 from markupwiki.views import view_article
 
@@ -18,8 +21,16 @@ def session_detail(request, pk, template_name=None):
 
 def session_list(request, con_slug=None, template_name=None):
     sessions = Session.objects.filter(conference__slug=con_slug or '2012')
+    try:
+        conference = sessions[0].conference
+    except IndexError:
+        conference = Conference.objects.get(pk=settings.CURRENT_CONFERENCE_ID)
     kwargs = {
         'queryset': sessions,
+        'extra_context': {
+            'conference': conference,
+            'current_date': datetime.datetime.now(),
+        }
     }
     if template_name:
         kwargs['template_name'] = template_name
