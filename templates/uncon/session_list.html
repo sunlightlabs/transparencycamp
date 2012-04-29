@@ -10,10 +10,11 @@
 
     <h2>2012 Schedule</h2>
     {% regroup object_list by date as date_list %}
+    {% comment %}
     <ul class="btn-group clearfix">{% for date in date_list %}
         <li><a class='btn-inline' href="#day-{{ date.grouper|slugify }}">{{ date.grouper|date:"l, F d" }}</a></li>{% endfor %}
     </ul>
-    
+    {% endcomment %}
     {% for date in date_list %}
 
     {# SORRY: If within the date range of the conference, hide previous days. Otherwise, show all days #}
