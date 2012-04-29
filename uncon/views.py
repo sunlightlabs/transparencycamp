@@ -29,7 +29,7 @@ def session_list(request, con_slug=None, template_name=None):
         'queryset': sessions,
         'extra_context': {
             'conference': conference,
-            'current_date': datetime.datetime.now(),
+            'current_date': datetime.date.today(),
         }
     }
     if template_name:
