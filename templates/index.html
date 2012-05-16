@@ -7,7 +7,8 @@
 
 {% block feature %}
     <div id="featureArea" class="vevent">
-    	<img src="{% media_url %}/images/headerImages2.png" alt="Photos from previous transparency talks">
+        <iframe width="490" height="279" src="http://www.youtube.com/embed/F3751eA22HY" frameborder="0" allowfullscreen></iframe>
+        <!-- <img src="{% media_url %}/images/headerImages2.png" alt="Photos from previous transparency talks"> -->
     	<div id="featureText">
     	    <h2 class="summary">Transparency Camp 2012</h2>
             <div class="details">
@@ -42,20 +43,24 @@
     <div class="section">
 
         <div id="callOut">
-            <h3>Suggest a session</h3>
-            <p>Share the ideas, topics and sessions you would like to see and/or lead at TransparencyCamp 2012, and vote for your favorites. <a href="http://goo.gl/mod/XA86">Check out what people are saying</a>.</p>
+            <h3>A big thank-you from the TCamp team!</h3>
+            <p>On April 28 and 29th, 2012, over 400 attendees from 27 countries and 26 states came together in Arlington, Virginia to build the community and share ideas that will shape the the open government movement for next years to come. It was an incredible experience and we’re committed to <a href="http://sunlightfoundation.com/blog/2012/05/04/transparencycamp-2012-reflections-next-steps-and-thanks/">blogging about the results</a> from this event as they happen. Follow along on the <a href="http://sunlightfoundation.com/blog/taxonomy/term/transparency-camp/">Sunlight Foundation blog</a>.</p>
         </div> 
         
         <p><b>TransparencyCamp</b> is an “unconference” for opengov: an event where, each year, journalists, developers, technologists, policy-makers, government officials, students, academics, wonks, and everyone in between gather to share their knowledge about how to use new technologies and policies to make our government really work for the people -- and to help our people work smarter with our government.</p>
 
         <p>As an "unconference," TransparencyCamp emphasizes the important contributions that each and every attendee brings with them into the sessions, workshops, and conversations associated with this event. In fact, attendees (yes, all of them) are brought into the process of making <a href="/schedule/">the schedule for the conference</a> with the organizers and are encouraged to step up and lead sessions themselves. (Check out our 2011 Recap video below to get a better sense of what we mean.)</p>
 
-        <p>We've seen a lot of productive, amazing results from TCamp in years past: US-based TCamp attendees have started unique, globally recognized initiatives, including <a href="http://citycamp.govfresh.com/">CityCamp</a> and <a href="http://crisiscommons.org/">CrisisCommons</a>, and our international guests have gone on to <a href="http://sunlightfoundation.com/blog/2011/11/22/transparencycamp-georgia-the-country/">organize TCamps in their own countries</a>. As the year 2012 is bursting with major questions about government transparency, openness, and accountability, we hope that participants take the opportunity to use TransparencyCamp  as a platform for to get (or at least get close to) answers. <b>To kick start this process, the developers out there should check out more information about our sister event, the <a href="/viphackathon/">Voting Information Project Hackathon</a>, set for April 30th.</b></p>
+        <p>We've seen a lot of productive, amazing results from TCamp in years past: US-based TCamp attendees have started unique, globally recognized initiatives, including <a href="http://citycamp.govfresh.com/">CityCamp</a> and <a href="http://crisiscommons.org/">CrisisCommons</a>, and our international guests have gone on to <a href="http://sunlightfoundation.com/blog/2011/11/22/transparencycamp-georgia-the-country/">organize TCamps in their own countries</a>. As the year 2012 is bursting with major questions about government transparency, openness, and accountability, we hope that participants take the opportunity to use TransparencyCamp  as a platform for to get (or at least get close to) answers.</p>
 
-        <p>Check back for more information, get inspired by the recap videos below, or <a href="http://goo.gl/mod/XA86">get started suggesting sessions right now</a>.</p>
+        <div id="flickrContent">
+            <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=5&amp;display=latest&amp;size=s&amp;layout=x&amp;source=all_tag&amp;tag=tcamp12"></script>
+        </div>
+        <div class="clear"></div>
+        <p>Join the <a href="http://www.flickr.com/groups/tcamp2012/">TransparencyCamp 2012 Flickr group</a>.</p>
 
         <div class="clear"></div>
-        
+
     </div>
     
     <div class="section">
@@ -86,6 +91,7 @@
 {% block sponsors %}
     <div class="section" id="sponsorSidebar">
 
+        {% comment %}
         <div id="donateAsk" class="section">
             <p>Make a donation to our scholarship fund to help with the cost of camp for someone who would otherwise not be able to attend.</p>
             <a class="btn" href="/donate/">Help send someone to TransparencyCamp 2012</a>
@@ -93,6 +99,7 @@
             <p style="margin: 1.5em 0 1em;">Itching to attend TransparencyCamp, but need some assistance? <a href="http://local.publicequalsonline.com/page/s/TCamp11_Travel_Scholarship_Application" style="display: block;">Apply for a scholarship.</a></p>
             -->
         </div> 
+        {% endcomment %}
 
         <h3 class="centerTitle">2012 sponsors</h3>
         <ul id="sponsor_sideList">
