@@ -1,5 +1,5 @@
 /*
- * YUI Resect CSS version: 2.2.2 
+ * YUI Resect CSS version: 2.2.2
  * Copyright (c) 2007, Yahoo! Inc. All rights reserved.
  * Licensed under the BSD License: http://developer.yahoo.net/yui/license.txt
  */
@@ -52,7 +52,7 @@ div#pageMain { 	margin: 0 auto; width: 960px; background: url(../images/headerBg
 div#mainHeader h1 { margin: 40px 0 0 40px; float: left; width: 237px; height: 77px; }
 div#mainHeader h1 a { display: block; text-indent: -9999em; width: 237px; height: 77px; background: url(../images/logo.png) top center no-repeat; }
 
-div#nav { float: left; margin-left: 230px; }
+div#nav { float: left; margin-left: 200px; }
 div#nav li{ float: left; }
 div#nav li a {
 	background: #dfe1e3;
@@ -149,7 +149,7 @@ div#rtColumn{
 	width: 250px;
 	float: left;
 	padding-left: 30px;
-	background: url(../images/bg_ltColumn.png) top left repeat-y; 
+	background: url(../images/bg_ltColumn.png) top left repeat-y;
 	padding-top: 40px;
 }
 
@@ -243,7 +243,7 @@ div.upnext {
 div.upnext h2 { font-size: 160%; margin-bottom: 1em; }
 div.upnext h3 { font-size: 120%; }
 div.upnext ol {
-	background: url(../images/line.png) left top no-repeat;	
+	background: url(../images/line.png) left top no-repeat;
 	padding: 1em 0 0 0;
 }
 
@@ -421,7 +421,7 @@ li#Google a{ background: url(../images/logo_google.png) left bottom no-repeat; w
 
 
 div#footer li{ float: left; margin-top: 230px;}
-div#footer li a{ text-indent: -9999em; display: block;}  
+div#footer li a{ text-indent: -9999em; display: block;}
 
 div#footer{
 	margin: 0 auto;
@@ -526,7 +526,7 @@ article.session div.details {
 	padding-bottom: 2em;
 }
 article.session dl {
-	
+
 }
 article.session dt {
 	clear: both;
@@ -654,3 +654,30 @@ img.viplogo {
 }
 
 p.donate-btn a.btn { margin: 1em 4em; width: auto; }
+
+/* How-To Page */
+.how-to #mainContent em { font-style:italic; }
+.how-to #mainContent ul, .how-to ol { margin-left:1.5em; margin-bottom:1em; }
+.how-to #mainContent ul { list-style:disc outside; }
+.how-to #mainContent ol { list-style: decimal; }
+.how-to #mainContent li ol { list-style:lower-latin; }
+.how-to #mainContent strong { font-weight:bold; }
+.how-to #mainContent table tr { border-bottom:1px solid #dedede; }
+.how-to #mainContent table tr td, .how-to table tr th { padding:0.5em 0; }
+.how-to #mainContent small { font-style:italic; }
+.how-to #mainContent small strong { font-style:normal; }
+.how-to #rtColumn { position:relative; margin-top:2px; margin-bottom:-52px; }
+.how-to #rtColumn .affix { position:absolute; top:0px; padding-top:20px; padding-bottom:30px; }
+.how-to #rtColumn .affix ul { list-style:none; font:normal 14px/1.25 "futura bold", helvetica, arial, sans-serif; }
+.how-to #rtColumn .affix ul li {}
+.how-to #rtColumn .affix ul li.divider {
+    height:10px;
+    background: url(/static/images/line_divider.png) 50% 50% no-repeat;
+    margin: 1em auto 1em -1em;
+    opacity: 0.5;
+}
+.how-to #rtColumn .affix ul li a { text-decoration:none;}
+.how-to #rtColumn .affix ul li a:hover { color:#0d253c; text-decoration:underline }
+.how-to #rtColumn .affix ul li a strong { font-weight: bold; }
+.how-to #rtColumn .affix ul li ul { margin-bottom: 1em; font-size: 12px; list-style: circle; }
+.how-to #rtColumn .affix > ul:last-child { margin-bottom: 0; }

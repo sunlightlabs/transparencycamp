@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<meta property="og:site_name" content="TransparencyCamp"> 
+	<meta property="og:site_name" content="TransparencyCamp">
 	{% block opengraph %}
 		<meta property="og:title" content="TransparencyCamp 2012">
 		<meta property="og:description" content="">
@@ -28,7 +28,7 @@
 			<div id="header">
 				<div id="mainHeader">
 					<h1><a href="{% url index %}">TransparencyCamp</a></h1>
-				</div>	
+				</div>
 				<div id="nav">
 					{% block nav %}
     					<ul>
@@ -37,6 +37,7 @@
                     		<li id="nav_hackathon"><a href="/viphackathon/">Hackathon</a></li>
                     		<li id="nav_community"><a href="/community/">Community</a></li>
                     		<li id="nav_sponsors"><a href="/sponsors/">Sponsors</a></li>
+                            {# <li id="nav_howto"><a href="/how-to/">How-To Guide</a></li> #}
                     	</ul>
                 	{% endblock %}
 				</div>
@@ -50,7 +51,7 @@
 					</div>
 					{% block sidebar %}
     					<div id="rtColumn">
-    					    
+
                 			{% if request.user.is_authenticated %}
     					        <div id="donateAsk" class="section">
             				        <p><a href="/admin/">Admin</a> | <a href="/staff/logout/">Logout</a></p>
@@ -59,13 +60,13 @@
 
         				    {% comment %}
         				    <div class="section">
-        				    	<a class="btn" href="http://tcamp12.eventbrite.com/" id="register">Register Now!</span></a>
+        				    	<a class="btn" href="http://tcamp12.eventbrite.com/" id="register">Register Now!</a>
         				    </div>
         				    {% endcomment %}
-                    		
+
                     		{% block sponsors %}{% endblock %}
-                    		
-                    		<div id="tweets">	
+
+                    		<div id="tweets">
                     			<h3>Updates from <a href="http://twitter.com/tcampdc">@TCampDC</a></h3>
                     			<ol class="hfeed">
                     			    {% updates as updates %}
@@ -76,22 +77,22 @@
                                 		</div>
                                 		<div class="tweetContent">
                                 			<p class="entry-title">{{ update.content|urlize }}</p>
-                                		</div>	
+                                		</div>
                                 	</li>
                                 	{% endfor %}
                                 </ol>
                     		</div>
-                    		
+
                     	</div>
                 	{% endblock %}
 				{% endblock %}
 				<div class="clear"></div>
-			</div>	
+			</div>
 		</div>
 	</div>
 	<div id="footer">
 		<a href="http://sunlightfoundation.com">Sunlight Foundation</a>
-	</div>	
+	</div>
 	{% block js %}{% endblock %}
 	<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
