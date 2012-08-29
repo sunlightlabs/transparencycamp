@@ -91,7 +91,8 @@ body.sponsors li#nav_sponsors a,
 body.multimedia li#nav_videos a,
 body.register li#nav_register a,
 body.community li#nav_community a,
-body.hackathon li#nav_hackathon a {
+body.hackathon li#nav_hackathon a,
+body.how-to li#nav_how-to a {
 	background: #203345;
 	background: -webkit-linear-gradient(#203345 60%, #132739 60%);
 	background:    -moz-linear-gradient(#203345 60%, #132739 60%);
