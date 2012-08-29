@@ -614,6 +614,11 @@ span.btn, span.btn-inline {
           box-sizing: border-box;
 }
 
+span.btn a {
+	color: #dddfe1;
+	text-decoration:none;
+}
+
 .btn-group {
     margin-bottom: 15px;
     display:block;
@@ -630,7 +635,8 @@ span.btn-inline {
 }
 
 a#register { font-size: 140%; font-weight: bold; text-transform: uppercase; }
-a#register-hackathon { font-size: 140%; font-weight: bold; text-transform: uppercase; padding-left: 0; padding-right: 0;}
+a#register-hackathon,
+span.btn strong { font-size: 140%; font-weight: bold; text-transform: uppercase; padding-left: 0; padding-right: 0;}
 
 div#ltColumn p.bq {
 	border-left: 1px solid #666;
