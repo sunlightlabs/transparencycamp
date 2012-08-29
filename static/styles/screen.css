@@ -637,6 +637,7 @@ span.btn-inline {
 a#register { font-size: 140%; font-weight: bold; text-transform: uppercase; }
 a#register-hackathon,
 span.btn strong { font-size: 140%; font-weight: bold; text-transform: uppercase; padding-left: 0; padding-right: 0;}
+span.btn strong { font-weight: normal; padding-bottom:0.6em; }
 
 div#ltColumn p.bq {
 	border-left: 1px solid #666;
