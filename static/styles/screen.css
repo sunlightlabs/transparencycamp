@@ -618,6 +618,9 @@ span.btn a {
 	color: #dddfe1;
 	text-decoration:none;
 }
+span.btn a:hover: {
+	color: #fff;
+}
 
 .btn-group {
     margin-bottom: 15px;
