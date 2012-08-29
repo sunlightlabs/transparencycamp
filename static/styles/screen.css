@@ -585,7 +585,8 @@ ul.sessions > li { margin: 0.5em 0; }
 
 li.markuptype { display: none; }
 
-a.btn, a.btn-inline {
+a.btn, a.btn-inline,
+span.btn, span.btn-inline {
   background: #203345;
   background: -webkit-linear-gradient(#203345 60%, #132739 60%);
   background:    -moz-linear-gradient(#203345 60%, #132739 60%);
@@ -618,9 +619,11 @@ a.btn, a.btn-inline {
     display:block;
 }
 
-a.btn span { display: block; }
+a.btn span,
+span.btn span { display: block; }
 
-a.btn-inline {
+a.btn-inline,
+span.btn-inline {
     width: auto;
     float: left;
     margin-right: 25px;
