@@ -5,15 +5,23 @@
     <link rel="shortlink" href="http://snlg.ht/tcampdc">
 {% endblock %}
 
+{% block css %}
+{{ block.super }}
+<style type="text/css">
+    .align-center { text-align:center; }
+    #callOut strong { font-weight: bold; }
+</style>
+{% endblock %}
+
 {% block feature %}
     <div id="featureArea" class="vevent">
         <iframe width="490" height="279" src="http://www.youtube.com/embed/F3751eA22HY" frameborder="0" allowfullscreen></iframe>
         <!-- <img src="{% media_url %}/images/headerImages2.png" alt="Photos from previous transparency talks"> -->
     	<div id="featureText">
-    	    <h2 class="summary">Transparency Camp 2012</h2>
+    	    <h2 class="summary">Transparency Camp 2013</h2>
             <div class="details">
                 <span class="dt">
-                    <abbr class="dtstart" title="2012-04-28">April 28</abbr> - <abbr class="dtend" title="2012-04-29">29</abbr>
+                    <abbr class="dtstart" title="2012-05-04">May 4</abbr> - <abbr class="dtend" title="2012-05-05">5</abbr>
                 </span>
                 Washington, DC
             </div>
@@ -25,7 +33,7 @@
 {% block content %}
 
     {% if next.sessions %}
-        <div class="upnext"> 
+        <div class="upnext">
             <h2>Coming up next at {{ next.time }} ...</h2>
             <ol>
                 {% for session in next.sessions %}
@@ -43,26 +51,33 @@
     <div class="section">
 
         <div id="callOut">
-            <h3>A big thank-you from the TCamp team!</h3>
-            <p>On April 28 and 29th, 2012, over 400 attendees from 27 countries and 26 states came together in Arlington, Virginia to build the community and share ideas that will shape the the open government movement for next years to come. It was an incredible experience and we’re committed to <a href="http://sunlightfoundation.com/blog/2012/05/04/transparencycamp-2012-reflections-next-steps-and-thanks/">blogging about the results</a> from this event as they happen. Follow along on the <a href="http://sunlightfoundation.com/blog/taxonomy/term/transparency-camp/">Sunlight Foundation blog</a>.</p>
-        </div> 
-        
-        <p><b>TransparencyCamp</b> is an “unconference” for opengov: an event where, each year, journalists, developers, technologists, policy-makers, government officials, students, academics, wonks, and everyone in between gather to share their knowledge about how to use new technologies and policies to make our government really work for the people -- and to help our people work smarter with our government.</p>
+            <h3>TransparencyCamp Returns!</h3>
+            <p>Get ready: This May, TransparencyCamp is coming back&mdash;and we want to see you there! Please join the Sunlight Foundation and the George Washington University School of Media and Public Affairs at the Marvin Center, centrally located on campus at George Washington University in Washington DC, May 4-5, 2013.</p>
+            <p><a href="https://services.myngp.com/ngponlineservices/Event.aspx?Y=FrZ0S4jyDpWsA1ipXiytqCQF1bgxQeahKlMvExgYtoSb6WiUBNeXPA%3D%3D" class="btn">Register Now</a></p>
+            <p class="align-center"><strong>Early bird prices are available from now through March 1, 2013.</strong></p>
+        </div>
 
-        <p>As an "unconference," TransparencyCamp emphasizes the important contributions that each and every attendee brings with them into the sessions, workshops, and conversations associated with this event. In fact, attendees (yes, all of them) are brought into the process of making <a href="/schedule/">the schedule for the conference</a> with the organizers and are encouraged to step up and lead sessions themselves. (Check out our 2011 Recap video below to get a better sense of what we mean.)</p>
+        <p><b>TransparencyCamp</b> is an "unconference" for opengov: an event where, each year, journalists, developers, technologists, policy-makers, government officials, students, academics, wonks, and everyone in between gather to share their knowledge about how to use new technologies and policies to make our government really work for the people -- and to help our people work smarter with our government.</p>
 
-        <p>We've seen a lot of productive, amazing results from TCamp in years past: US-based TCamp attendees have started unique, globally recognized initiatives, including <a href="http://citycamp.govfresh.com/">CityCamp</a> and <a href="http://crisiscommons.org/">CrisisCommons</a>, and our international guests have gone on to <a href="http://sunlightfoundation.com/blog/2011/11/22/transparencycamp-georgia-the-country/">organize TCamps in their own countries</a>. As the year 2012 is bursting with major questions about government transparency, openness, and accountability, we hope that participants take the opportunity to use TransparencyCamp  as a platform for to get (or at least get close to) answers.</p>
+        <p>As an "unconference," TransparencyCamp emphasizes the important contributions that each and every attendee brings with them into the sessions, workshops, and conversations associated with this event. In fact, attendees (yes, all of them) are brought into the process of making <a href="/schedule/">the schedule for the conference</a> with the organizers and are encouraged to step up and lead sessions themselves. (Check out our 2012 Recap video above to get a better sense of what we mean.)</p>
 
+        <p>We've seen a lot of productive, amazing results from TCamp in years past: US-based TCamp attendees have started unique, globally recognized initiatives, including <a href="http://citycamp.govfresh.com/">CityCamp</a> and <a href="http://crisiscommons.org/">CrisisCommons</a>, and our international guests have gone on to <a href="http://sunlightfoundation.com/blog/2011/11/22/transparencycamp-georgia-the-country/">organize TCamps in their own countries</a>.</p>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="section">
+        <h2>TransparencyCamp 2012 Recap</h2>
+        <p>On april 28th and 29th, 2012, more than 400 attendees from 27 countries and 26 states came together in Arlington, Virginia to build the community and share ideas that will shape the open government movement for years to come. It was an incredible experience and we've been <a href="http://sunlightfoundation.com/blog/2012/05/04/transparencycamp-2012-reflections-next-steps-and-thanks/">blogging</a> about the results from this event as they happen. Follow along on the <a href="http://sunlightfoundation.com/blog/">Sunlight Foundation blog</a>.</p>
+        <p><a href="#">Watch the video recap at the top of the page &uarr;</a>.</p>
+        {# <iframe src="http://www.youtube.com/embed/F3751eA22HY" frameborder="0" width="530" height="299" allowfullscreen></iframe> #}
         <div id="flickrContent">
             <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=5&amp;display=latest&amp;size=s&amp;layout=x&amp;source=all_tag&amp;tag=tcamp12"></script>
         </div>
         <div class="clear"></div>
         <p>Join the <a href="http://www.flickr.com/groups/tcamp2012/">TransparencyCamp 2012 Flickr group</a>.</p>
-
-        <div class="clear"></div>
-
     </div>
-    
+
     <div class="section">
         <h2>TransparencyCamp 2011 Recap</h2>
         <iframe width="530" height="299" src="http://www.youtube.com/embed/mb9jhYweZI8" frameborder="0" allowfullscreen></iframe>
@@ -77,7 +92,7 @@
         <h2>TransparencyCamp 2010 Recap</h2>
         <iframe width="530" height="299" src="http://www.youtube.com/embed/sHiGGluSzyE" frameborder="0" allowfullscreen></iframe>
     </div>
-        
+
     <div class="section share">
 
         <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://transparencycamp.org/" data-text="Join me at TransparencyCamp 2012!" data-count="horizontal" data-via="TCampDC">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -87,6 +102,8 @@
     </div>
 
 {% endblock %}
+
+{% block register %}{% endblock %}
 
 {% block sponsors %}
     <div class="section" id="sponsorSidebar">
@@ -98,21 +115,14 @@
             <!--
             <p style="margin: 1.5em 0 1em;">Itching to attend TransparencyCamp, but need some assistance? <a href="http://local.publicequalsonline.com/page/s/TCamp11_Travel_Scholarship_Application" style="display: block;">Apply for a scholarship.</a></p>
             -->
-        </div> 
+        </div>
         {% endcomment %}
 
-        <h3 class="centerTitle">2012 sponsors</h3>
+        <h3 class="centerTitle">2013 sponsors</h3>
         <ul id="sponsor_sideList">
-            <li><a href="http://policy.gmu.edu/"><img src="{% media_url "images/sponsors/gmupolicy_sm.png" %}"></a></li>
-            <li><a href="http://www.governing.com/"><img src="{% media_url "images/sponsors/governing_sm.png" %}" alt="Governing"></a></li>
-            <li><a href="http://www.azavea.com/"><img src="{% media_url "images/sponsors/azavea_sm.png" %}" alt="Azavea"></a></li>
-            <li><a href="http://cgifederal.com/"><img src="{% media_url "images/sponsors/cgi_sm.png" %}" alt="CGI Federal"></a></li>
-            <li><a href="http://www.forumone.com/"><img src="{% media_url "images/sponsors/forumone_sm.png" %}" alt="Forum One Communications"></a></li>
-            <li><a href="http://www.ideavibes.com/"><img src="{% media_url "images/sponsors/ideavibes_sm.png" %}" alt="Ideavibes"></a></li>
-            <li><a href="http://www.microsoft.com/"><img src="{% media_url "images/sponsors/microsoft_sm.png" %}" alt="Microsoft"></a></li>
-            <li><a href="http://www.uscongresshandbook.com"><img src="{% media_url "images/sponsors/usch_sm.png" %}" alt="US Congress Handbook"></a></li>
-        </ul>  
+            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% media_url "images/sponsors/smpa_sm.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
+        </ul>
         <div class="clear"></div>
         <a class="viewMore" href="/sponsors">View all of our gracious sponsors »</a>
-    </div>    
+    </div>
 {% endblock %}

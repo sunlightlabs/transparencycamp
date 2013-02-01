@@ -34,10 +34,11 @@
     					<ul>
                     		<li id="nav_logistics"><a href="/logistics/">Logistics</a></li>
                     		<li id="nav_schedule"><a href="/sessions/">Schedule</a></li>
-                    		<li id="nav_hackathon"><a href="/viphackathon/">Hackathon</a></li>
+                    		{# <li id="nav_hackathon"><a href="/viphackathon/">Hackathon</a></li> #}
                     		<li id="nav_community"><a href="/community/">Community</a></li>
                     		<li id="nav_sponsors"><a href="/sponsors/">Sponsors</a></li>
                             <li id="nav_how-to"><a href="/how-to/">How-To Guide</a></li>
+                            <li id="nav_register"><a href="https://services.myngp.com/ngponlineservices/Event.aspx?Y=FrZ0S4jyDpWsA1ipXiytqCQF1bgxQeahKlMvExgYtoSb6WiUBNeXPA%3D%3D" rel="external">Register</a></li>
                     	</ul>
                 	{% endblock %}
 				</div>
@@ -58,11 +59,11 @@
                     		    </div>
         				    {% endif %}
 
-        				    {% comment %}
+                            {% block register %}
         				    <div class="section">
-        				    	<a class="btn" href="http://tcamp12.eventbrite.com/" id="register">Register Now!</a>
+        				    	<a class="btn" href="https://services.myngp.com/ngponlineservices/Event.aspx?Y=FrZ0S4jyDpWsA1ipXiytqCQF1bgxQeahKlMvExgYtoSb6WiUBNeXPA%3D%3D" id="register" rel="external">Register Now!</a>
         				    </div>
-        				    {% endcomment %}
+                            {% endblock %}
 
                     		{% block sponsors %}{% endblock %}
 
@@ -93,7 +94,11 @@
 	<div id="footer">
 		<a href="http://sunlightfoundation.com">Sunlight Foundation</a>
 	</div>
-	{% block js %}{% endblock %}
+	{% block js %}
+        <script>
+            $('a[rel=external]').attr('_target', 'blank');
+        </script>
+    {% endblock %}
 	<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

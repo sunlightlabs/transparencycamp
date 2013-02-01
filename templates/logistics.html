@@ -6,32 +6,33 @@
 
     <h2>The Deal</h2>
     <p>TCamp is a come-as-you-are environment. If that means jeans, sandals, ties, or pearls to you, then so be it. The rest of us will be casual (or possibly in bear suits). We care more about the substance of what you have to say than what you wear while saying it.</p>
+    <p><a href="https://services.myngp.com/ngponlineservices/Event.aspx?Y=FrZ0S4jyDpWsA1ipXiytqCQF1bgxQeahKlMvExgYtoSb6WiUBNeXPA%3D%3D" rel="nofollow external">Click Here to Register for TCamp 2013</a></p>
 
     <h2>Eats</h2>
     <p>We provide you with coffee, breakfast, lunch, and snacks for both Saturday and Sunday, plus an awesome happy hour in the middle. Expect to eat well, whether you're an omnivore, herbivore or gluten-free-ivore.</p>
     <h3>Happy Hour!</h3>
-    <p>Bonus! Cut loose with us after Day 1 of Camp at the TCamp Happy Hour, hosted this year on Saturday, April 28th at the <a href="http://cgrill.com/">Clarendon Grill</a> from 6:00 to 8:00. We'll provide attendees with more info at the event, but know that opengov nerdery and drink specials will be in good supply.</p>
+    <p>A happy hour event is in the works for 2013. We will update you when we have details.</p>
 
     <h2>Where is TransparencyCamp?</h2>
-    <h3>Founders Hall, George Mason University</h3>
-    <p><a href="http://g.co/maps/v8ncv" title="Google Maps">3351 Fairfax Drive, Arlington, VA</a></p>
+    <h3>The George Washington University, Marvin Center</h3>
+    <p><a href="http://goo.gl/maps/odcrD" class="gmap" title="Map it">800 21st St. NW, Washington, DC 20052</a></p>
     <div id="map"></div>
 
     <h2>Plan Your Stay</h2>
-    <p>TransparencyCamp is located between the Clarendon and Virginia Square-GMU stops on the Orange Line of the DC Metro. If you're planning on using public transportation to get to Camp, locations near the Blue/Orange Line are ideal. For specific ideas, tips, and tricks on planning your TCamp trip, check out <a href="http://sunlightfoundation.com/blog/2012/02/23/where-to-stay-for-transparencycamp-2012/">this post on the Sunlight Foundation blog</a>.</p>
+    <p>TransparencyCamp 2013 at the Marvin Center is located close to the Foggy Bottom Metro stop on the Orange and Blue lines of the DC Metro. If you're planning on using public transportation to get to Camp, locations near the Blue/Orange line are ideal.</p>
 
     <h2>Parking</h2>
-    <p>Going AWOL from public transportation? That's okay: There's plenty of street parking in the George Mason University (GMU) area. Plus, GMU's Founders Hall (TCamp HQ) has its own parking garage where you can score a spot for only $7 a day. For more details of on-campus parking, <a href="http://www.law.gmu.edu/about/parking">head here</a>.</p>
+    <p>Street parking in Foggy Bottom is limited, so Metro, bus, cycling or moonwalking may be your best options. Still intent on driving? There are <a href="http://parking.gwu.edu/where/index.cfm">Some lots available to GW visitors for a fee</a>.</p>
 
 
     {% comment %}
 
     <h2>When do I need to get there?</h2>
-    
+
     <p><a href="/sessions/2/">Registration and coffee</a> will start at 9am on Saturday, April 30th. The <a href="/sessions/2/">Opening Session</a> starts at 10am -- don't miss it!</p>
-    
+
     <h2>What should I bring?</h2>
-    
+
     <p>
         Please help us keep TransparencyCamp as green as possible by bringing a water bottle and/or coffee mug to help keep waste down.
         Power strips and chargers for your computer, phone, etc. are also never bad ideas.
@@ -39,16 +40,16 @@
         Every room will have a projector, but we can't promise we'll have the right adaptors for your computer.
         If you need to purchase an adaptor, there is an <a href="http://goo.gl/maps/2v9j">Apple Store</a> near the Bethesda Metro station and a <a href="http://goo.gl/maps/1WfY">Best Buy</a> at the Tenleytown-AU Metro station.
     </p>
-    
+
     <h2>What should I wear?</h2>
-    
+
     <p>
         Check the <a href="http://www.washingtonpost.com/blogs/capital-weather-gang">Capitol Weather Gang blog</a> for the latest weather conditions.
         Dress for the Camp is casual -- just be comfortable.
     </p>
-    
+
     <h2>Will there be internet?</h2>
-    
+
     <p>Yes, we'll have wireless provided. Cell phone reception inside the building isn't great, though.</p>
 
     {% endcomment %}
@@ -56,21 +57,21 @@
 {% endblock %}
 
 {% block js %}
-
+    {{ block.super }}
     <script src="http://maps.google.com/maps/api/js?sensor=false&amp;v=3.2"></script>
     <script>
         var map;
         $(document).ready(function() {
-            var loc = new google.maps.LatLng(38.88499, -77.10109);
+            var loc = new google.maps.LatLng(38.900000, -77.047000);
             map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: loc,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
             var marker = new google.maps.Marker({
-                position: loc, 
-                map: map, 
-                title: "Microsoft"
+                position: loc,
+                map: map,
+                title: "The George Washington University, Marvin Center"
             });
         });
     </script>

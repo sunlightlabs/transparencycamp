@@ -5,10 +5,10 @@
 {% block content %}
 
     <div class="section">
-        <p>TransparencyCamp is an "unconference", which means that participants set the agenda, lead sessions, and drive the dialogue. Most of the schedule will be set during the event itself, so, when you attend, be sure to bring along some ideas for what you’d like to talk about! To kick things off, we've opened up <a href="http://goo.gl/mod/XA86">this forum</a> for you to brainstorm sessions and topics you would like to lead, co-lead, or just see discussed. We'll select the most popular session ideas to fill our first round of sessions on Day One of the Camp. Check back to see what others want to talk about and to add your own thoughts, too!</p>
+        <p>TransparencyCamp is an "unconference", which means that participants set the agenda, lead sessions, and drive the dialogue. Most of the schedule will be set during the event itself, so, when you attend, be sure to bring along some ideas for what you’d like to talk about! To kick things off, we've opened up <a href="http://goo.gl/mod/XA86">this forum</a> for you to brainstorm sessions and topics you would like to lead, co-lead, or just see discussed. We'll select the most popular session ideas to fill our first round of sessions on Day One of the Camp. Check back when we open the forum to see what others want to talk about and to add your own thoughts, too!</p>
     </div>
 
-    <h2>2012 Schedule</h2>
+    <h2>{{ conference.start_date|date:"Y" }} Schedule</h2>
     {% regroup object_list by date as date_list %}
     {% comment %}
     <ul class="btn-group clearfix">{% for date in date_list %}
@@ -21,7 +21,7 @@
     {% if current_date >= conference.start_date and current_date <= conference.end_date %}
     <!-- {{ date.grouper }} -->
     {% if date.list.0.date < current_date %}
-    <div id="day-{{ date.grouper|slugify }}" class="date-group" style="display:none">    
+    <div id="day-{{ date.grouper|slugify }}" class="date-group" style="display:none">
     {% else %}
     <div id="day-{{ date.grouper|slugify }}" class="date-group">
     {% endif %}
@@ -31,25 +31,29 @@
     {% endif %}
 
             <h3 class="grouper">{{ date.grouper|date:"l, F d" }}</h3>
-    
+
             {% regroup date.list by start_time as time_list %}
             <div class='date-group-inner'>{% for time in time_list %}
                 <div class="time-group">
                     <h4 class="grouper">{{ time.grouper|time:"g:i a" }}</h4>
-            
+
                     <ul class="sessions">
                         {% for session in time.list %}
                             <li><a href="/sessions/{{ session.pk }}/">{{ session }}</a> <small>{{ session.location }}</small></li>
                         {% endfor %}
                     </ul>
-                
+
                 </div>
-        
+
             {% endfor %}
             </div>
-        
+
         </div>
-    
+
+    {% empty %}
+
+        <p>The schedule will be updated with new sessions as they are added.</p>
+
     {% endfor %}
-        
+
 {% endblock %}

@@ -3,18 +3,27 @@
 
 <body class="{% block body %}sponsors{% endblock %}">
 
+{% block css %}
+{{ block.super }}
+<style type="text/css">
+    ul.sponsorsList li {
+        text-align:center;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
     <h2>2012 Sponsors</h2>
     <div id="callOut">
         <h3>Want to become a sponsor?</h3>
         <p>For more information please <a href="/sponsors/info/">click here</a> or contact Chris McCleary at <a href="mailto:cmccleary@sunlightfoundation.com">cmccleary@sunlightfoundation.com</a></p>
-    </div> 
+    </div>
     <div id="fullSponsors">
         <ul class="sponsorsList">
-            <li><a href="http://policy.gmu.edu/"><img src="{% media_url "images/sponsors/gmupolicy.png" %}" alt="GMU School of Public Policy"></a></li>
-            <li><a href="http://www.governing.com/"><img src="{% media_url "images/sponsors/governing_lg.png" %}" alt="Governing"></a></li>
+            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% media_url "images/sponsors/smpa.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
         </ul>
     	<div class="clear"></div>
+        {% comment %}
         <ul class="sponsorsList">
             <li><a href="http://www.azavea.com/"><img src="{% media_url "images/sponsors/azavea.png" %}" alt="Azavea"></a></li>
             <li><a href="http://cgifederal.com/"><img src="{% media_url "images/sponsors/cgi.png" %}" alt="CGI Federal"></a></li>
@@ -23,11 +32,14 @@
             <li><a href="http://www.microsoft.com/"><img src="{% media_url "images/sponsors/microsoft.png" %}" alt="Microsoft"></a></li>
             <li><a href="http://www.uscongresshandbook.com"><img src="{% media_url "images/sponsors/usch.png" %}" alt="US Congress Handbook"></a></li>
         </ul>
+        {% endcomment %}
         <div class="clear"></div>
+        {% comment %}
         <ul class="sponsorsList">
             <li><a href="http://www.istrategylabs.com/"><img src="{% media_url "images/sponsors/isl.png" %}" alt="iStrategy Labs"></a></li>
         </ul>
+        {% endcomment %}
         <div class="clear"></div>
-        
+
     </div>
 {% endblock %}

@@ -20,11 +20,12 @@ def session_detail(request, pk, template_name=None):
 
 
 def session_list(request, con_slug=None, template_name=None):
-    sessions = Session.objects.filter(conference__slug=con_slug or '2012')
+    conference = Conference.objects.current().order_by('-start_date')[0]
+    sessions = Session.objects.filter(conference__slug=con_slug or conference.slug)
     try:
         conference = sessions[0].conference
-    except IndexError:
-        conference = Conference.objects.get(pk=settings.CURRENT_CONFERENCE_ID)
+    except:
+        pass
     kwargs = {
         'queryset': sessions,
         'extra_context': {
