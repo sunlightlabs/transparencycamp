@@ -429,7 +429,7 @@ div#footer li a{ text-indent: -9999em; display: block;}
 div#footer{
 	margin: 0 auto;
 	width: 960px;
-	background: url(../images/footer.png) left top no-repeat;
+	background: url(//assets-sfcom.s3.amazonaws.com/img/logo.png) left top no-repeat;
 	height: 140px;
 }
 
