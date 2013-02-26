@@ -127,7 +127,7 @@ class Twitterer(models.Model):
     twitter_id = models.CharField(max_length=64, unique=True)
     screen_name = models.CharField(max_length=32)
     full_name = models.CharField(max_length=128, blank=True)
-    avatar_url = models.URLField(verify_exists=False)
+    avatar_url = models.URLField()
 
     class Meta:
         ordering = ('screen_name',)
