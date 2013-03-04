@@ -16,5 +16,5 @@ class CachedS3BotoStorage(S3BotoStorage):
         self.local_storage._save(name, content)
         return name
 
-StaticRootS3BotoStorage = lambda: CachedS3BotoStorage(location='transparencycamp/static')
-MediaRootS3BotoStorage = lambda: S3BotoStorage(location='transparencycamp/media')
+StaticRootS3BotoStorage = lambda: CachedS3BotoStorage(location='2.0/static')
+MediaRootS3BotoStorage = lambda: S3BotoStorage(location='2.0/media')
