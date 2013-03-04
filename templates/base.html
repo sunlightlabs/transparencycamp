@@ -11,13 +11,13 @@
 		<meta property="og:description" content="Join us at TCamp13 in Washington DC, May 4-5, 2013 at George Washington University.">
 		<meta property="og:type" content="cause">
 		<meta property="og:url" content="http://transparencycamp.org/">
-		<meta property="og:image" content="http://transparencycamp.org/static/images/headerImages2.png">
+		<meta property="og:image" content="{% static "images/headerImages2.png" %}">
 	{% endblock %}
 	<meta property="fb:admins" content="7812952">
 	<title>{% block title %}TransparencyCamp 2013{% endblock %}</title>
 	{% block head %}{% endblock %}
 	<link rel="stylesheet" href="{% static "styles/screen.css" %}">
-	<!--[if IE 6]><link rel="stylesheet" href="{% static "/styles/buggy.css" %}"><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="{% static "styles/buggy.css" %}"><![endif]-->
 	{% block css %}{% endblock %}
 	<script src="{% static "scripts/jquery-1.4.2.min.js" %}"></script>
 </head>
