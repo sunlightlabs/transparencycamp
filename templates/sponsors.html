@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load media %}
+{% load staticfiles %}
 
 <body class="{% block body %}sponsors{% endblock %}">
 
@@ -20,23 +20,23 @@
     </div>
     <div id="fullSponsors">
         <ul class="sponsorsList">
-            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% media_url "images/sponsors/smpa.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
+            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% static "images/sponsors/smpa.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
         </ul>
     	<div class="clear"></div>
         {% comment %}
         <ul class="sponsorsList">
-            <li><a href="http://www.azavea.com/"><img src="{% media_url "images/sponsors/azavea.png" %}" alt="Azavea"></a></li>
-            <li><a href="http://cgifederal.com/"><img src="{% media_url "images/sponsors/cgi.png" %}" alt="CGI Federal"></a></li>
-            <li><a href="http://www.forumone.com/"><img src="{% media_url "images/sponsors/forumone.png" %}" alt="Forum One Communications"></a></li>
-            <li><a href="http://www.ideavibes.com/"><img src="{% media_url "images/sponsors/ideavibes.png" %}" alt="Ideavibes"></a></li>
-            <li><a href="http://www.microsoft.com/"><img src="{% media_url "images/sponsors/microsoft.png" %}" alt="Microsoft"></a></li>
-            <li><a href="http://www.uscongresshandbook.com"><img src="{% media_url "images/sponsors/usch.png" %}" alt="US Congress Handbook"></a></li>
+            <li><a href="http://www.azavea.com/"><img src="{% static "images/sponsors/azavea.png" %}" alt="Azavea"></a></li>
+            <li><a href="http://cgifederal.com/"><img src="{% static "images/sponsors/cgi.png" %}" alt="CGI Federal"></a></li>
+            <li><a href="http://www.forumone.com/"><img src="{% static "images/sponsors/forumone.png" %}" alt="Forum One Communications"></a></li>
+            <li><a href="http://www.ideavibes.com/"><img src="{% static "images/sponsors/ideavibes.png" %}" alt="Ideavibes"></a></li>
+            <li><a href="http://www.microsoft.com/"><img src="{% static "images/sponsors/microsoft.png" %}" alt="Microsoft"></a></li>
+            <li><a href="http://www.uscongresshandbook.com"><img src="{% static "images/sponsors/usch.png" %}" alt="US Congress Handbook"></a></li>
         </ul>
         {% endcomment %}
         <div class="clear"></div>
         {% comment %}
         <ul class="sponsorsList">
-            <li><a href="http://www.istrategylabs.com/"><img src="{% media_url "images/sponsors/isl.png" %}" alt="iStrategy Labs"></a></li>
+            <li><a href="http://www.istrategylabs.com/"><img src="{% static "images/sponsors/isl.png" %}" alt="iStrategy Labs"></a></li>
         </ul>
         {% endcomment %}
         <div class="clear"></div>

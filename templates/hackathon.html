@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load media %}
+{% load staticfiles %}
 
 {% block body %}hackathon{% endblock %}
 
@@ -36,10 +36,10 @@
         <div class="section">
             <p>The VIP Hackathon is brought to you by the Pew Center on the States and their partners:</p>
             <ul id="sponsor_sideList">
-                <li><a href="http://www.pewcenteronthestates.org/"><img src="{% media_url "images/sponsors/pew_sm.png" %}" alt="Pew Charitable Trusts"></a></li>
-                <li><a href="http://google.com/"><img src="{% media_url "images/sponsors/google_sm.png" %}" alt="Google"></a></li>
-                <li><a href="http://microsoft.com/"><img src="{% media_url "images/sponsors/microsoft_sm.png" %}" alt="Microsoft"></a></li>
-                <li><a href="http://sunlightfoundation.com/"><img src="{% media_url "images/sponsors/sf_sm.png" %}" alt="Sunlight Foundation"></a></li>
+                <li><a href="http://www.pewcenteronthestates.org/"><img src="{% static "images/sponsors/pew_sm.png" %}" alt="Pew Charitable Trusts"></a></li>
+                <li><a href="http://google.com/"><img src="{% static "images/sponsors/google_sm.png" %}" alt="Google"></a></li>
+                <li><a href="http://microsoft.com/"><img src="{% static "images/sponsors/microsoft_sm.png" %}" alt="Microsoft"></a></li>
+                <li><a href="http://sunlightfoundation.com/"><img src="{% static "images/sponsors/sf_sm.png" %}" alt="Sunlight Foundation"></a></li>
             </ul>
         </div>
     </div>

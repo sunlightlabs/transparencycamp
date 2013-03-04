@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block feature %}
+<div id="featureArea">
+    <h3 style="font-size:180%;margin:1em 0;"><a href="{{ subsite.get_absolute_url }}">{{ subsite.name }}</a></h3>
+    {{ subsite.description|linebreaks }}
+    {% include "brainstorm/partials/idea_form.html" %}
+    <div class="clear"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_anonymous %}
+<div class="alert brainstorm-alert">
+    <h4>Voting is open!</h4>
+    <p>Browse the submissions below, vote and provide your feedback.
+       To ensure votes are counted fairly, you'll need to
+       log in with one of the services below:
+    </p>
+    <ul class="login-blocks clearfix">
+    {% for service in BRAINSTORM_LOGIN_OPTIONS %}
+        <li>
+            <a class="{{ service.0|lower }}" href="{{ service.1 }}?{{ REDIRECT_FIELD_NAME }}={{ request.path|urlencode }}">Log in with {{ service.0 }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

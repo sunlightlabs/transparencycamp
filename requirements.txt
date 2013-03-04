@@ -1,9 +1,12 @@
 Django==1.3
 django-debug-toolbar
--e git://github.com/sunlightlabs/django-mediasync.git#egg=mediasync
+django-template-repl
 slimmer
 python-postmark
 django-tastypie
+django-social-auth
+django-storages
+django_compressor
 pytz
 
 markdown

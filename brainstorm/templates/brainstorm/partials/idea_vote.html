@@ -1,0 +1,65 @@
+{% load brainstorm %}
+<script>
+window.maxVote = {{ idea.subsite.max_vote_count }}
+</script>
+<div class="brainstorm-item clearfix" id="brainstorm-{{ idea.subsite.slug }}-{{ idea.id }}">
+
+<div class="brainstorm brainstorm-vote">
+    <div class="brainstorm-votes-counted">
+        <div class="brainstorm-upvotes">{{ idea.subsite.upvotes_label|simpleformat:idea.upvotes|safe }}</div>
+        {% if idea.subsite.allow_downvote %}
+        <div class="brainstorm-downvotes">{{idea.subsite.downvotes_label|simpleformat:idea.downvotes|safe }}</div>
+        {% endif %}
+    </div>
+{% if not idea.user_vote and not request.user.is_anonymous %}
+    <div class="brainstorm-votable">
+        <form action="{% url idea_vote slug=idea.subsite.slug id=idea.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="vote" value="1">
+            <button class="btn btn-mini brainstorm-vote-up" type="submit">{{ idea.subsite.upvote_label|safe }}</button>
+        </form>
+        {% if idea.subsite.allow_downvote %}
+        <form action="{% url idea_vote slug=idea.subsite.slug id=idea.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="vote" value="-1">
+            <button class="btn btn-mini brainstorm-vote-down" type="submit">{{ idea.subsite.downvote_label|safe }}</button>
+        </form>
+        {% endif %}
+    </div>
+{% elif idea.user_vote %}
+    <div class="brainstorm-votable brainstorm-voted">
+        <form action="{% url idea_vote slug=idea.subsite.slug id=idea.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="vote" value="0">
+            <button class="btn btn-mini disabled brainstorm-unvote" type="submit">{{ idea.subsite.voted_label|safe }}</button>
+        </form>
+    </div>
+{% else %}
+    <div class="brainstorm-votable brainstorm-login">
+        {% if BRAINSTORM_LOGIN_OPTIONS %}
+        <strong>Log in to Vote:</strong>
+        <div class="brainstorm-login-options">
+            {% for service in BRAINSTORM_LOGIN_OPTIONS %}
+            <a href="{{ service.1 }}?{{ REDIRECT_FIELD_NAME }}={{ request.path|urlencode }}" class="{{ service.0|lower }}">{{ service.0 }}</a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <a href={% url login %}{{ redirect_querystring }} class="btn btn-mini disabled">Log in to vote</a>
+        {% endif %}
+    </div>
+{% endif %}
+</div>
+<div class="brainstorm-description">
+    <h3><a href="{{ idea.get_absolute_url }}">{{ idea.title }}</a></h3>
+    <div class="brainstorm-timestamp">
+        Submitted on {{ idea.timestamp|date:"m/d P" }} by {{ idea.name }} |
+        <a class="brainstorm-disqus-comments" href="{{ idea.get_absolute_url }}{% if BRAINSTORM_USE_DISQUS %}#disqus_thread{% endif %}"></a>
+    </div>
+    {% if is_permalink %}
+    <p>{{ idea.description|urlize|linebreaks }}</p>
+    {% else %}
+    <p>{{ idea.description|urlize|linebreaks|truncatewords:100 }} <a href="{{ idea.get_absolute_url }}">READ MORE</a></p>
+    {% endif %}
+</div>
+
+</div>

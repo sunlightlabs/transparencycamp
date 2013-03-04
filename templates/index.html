@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load media %}
+{% load staticfiles %}
 
 {% block head %}
     <link rel="shortlink" href="http://snlg.ht/tcampdc">
@@ -16,7 +16,7 @@
 {% block feature %}
     <div id="featureArea" class="vevent">
         <iframe width="490" height="279" src="http://www.youtube.com/embed/F3751eA22HY" frameborder="0" allowfullscreen></iframe>
-        <!-- <img src="{% media_url %}/images/headerImages2.png" alt="Photos from previous transparency talks"> -->
+        <!-- <img src="{% static "images/headerImages2.png" %}" alt="Photos from previous transparency talks"> -->
     	<div id="featureText">
     	    <h2 class="summary">Transparency Camp 2013</h2>
             <div class="details">
@@ -120,7 +120,7 @@
 
         <h3 class="centerTitle">2013 sponsors</h3>
         <ul id="sponsor_sideList">
-            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% media_url "images/sponsors/smpa_sm.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
+            <li><a href="http://smpa.gwu.edu/" rel="nofollow external"><img src="{% static "images/sponsors/smpa_sm.png" %}" alt="The George Washington University School of Media and Public Affairs"></a></li>
         </ul>
         <div class="clear"></div>
         <a class="viewMore" href="/sponsors">View all of our gracious sponsors »</a>

@@ -1,0 +1,44 @@
+{% extends subsite.theme %}
+{% load staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "brainstorm/scoped-bootstrap-form.css" %}">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static "brainstorm/app.js" %}"></script>
+{% if BRAINSTORM_USE_DISQUS %}
+<script type="text/javascript">
+var disqus_shortname = '{{ DISQUS_SHORTNAME }}';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<div class="brainstorm-ideas">
+    <ul>
+    {% for idea in idea_list %}
+        <li class="brainstorm-idea clearfix">{% include "brainstorm/partials/idea_vote.html" %}</li>
+    {% endfor %}
+    </ul>
+</div>
+<div class="brainstorm-pagination">
+    {% if has_previous %}
+        <a class="brainstorm-previous" href="?page={{previous}}">previous</a>
+    {% endif %}
+    <span class="brainstorm-current">page {{page}} / {{pages}}</span>
+    {% if has_next %}
+        <a class="brainstorm-next" href="?page={{next}}">next</a>
+    {% endif %}
+</div>
+{% endblock %}
+

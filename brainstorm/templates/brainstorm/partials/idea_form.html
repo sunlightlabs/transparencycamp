@@ -1,0 +1,50 @@
+{% load brainstorm %}
+{% if request.user|can_post_in:subsite %}
+    <form class="brainstorm brainstorm-form" action="{% url new_idea subsite.slug %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <fieldset>
+            <legend>Submit a new {{ subsite.idea_label|title }}</legend>
+            <ul>
+                <li class="input">
+                    {{ form.title.errors }}
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" value="{{ form.title.value|default:""|escape }}" />
+                </li>
+                <li class="input">
+                    {{ form.name.errors }}
+                    <label for="name">Your Name</label>
+                    {% with request.session.name|default:"" as defaultname %}
+                    <input type="text" id="name" name="name" value="{{ form.name.value|default:defaultname|escape }}" />
+                    {% endwith %}
+                </li>
+                <li class="input">
+                    {{ form.email.errors }}
+                    <label for="email">Your Email (will not be published)</label>
+                    {% with request.session.email|default:"" as defaultemail %}
+                    <input type="text" id="email" name="email" value="{{ form.email.value|default:defaultemail|escape }}" />
+                    {% endwith %}
+                </li>
+                <li class="textarea">
+                    {{ form.description.errors }}
+                    <label for="description">Description</label>
+                    <textarea rows="6" id="description" name="description">{{ form.description.value|default:""|escape }}</textarea>
+                </li>
+            </ul>
+
+
+
+
+
+
+
+            <button type="submit" class="btn">Submit</button>
+        </fieldset>
+    </form>
+{% else %}
+    {% if request.user.is_anonymous %}
+        <a href={% url login %}>Log in to post new {{ subsite.idea_label|pluralize }}.</a>
+    {% else %}
+        <p>Posting new {{ subsite.idea_label|pluralize }} has been disabled for this site.</p>
+    {% endif %}
+{% endif %}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-{% load media %}
-{% load uncon_tags %}
+{% load staticfiles uncon_tags %}
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,10 +16,10 @@
 	<meta property="fb:admins" content="7812952">
 	<title>{% block title %}TransparencyCamp 2013{% endblock %}</title>
 	{% block head %}{% endblock %}
-	{% css "styles/screen.css" %}
-	<!--[if IE 6]>{% css "/styles/buggy.css" %}<![endif]-->
+	<link rel="stylesheet" href="{% static "styles/screen.css" %}">
+	<!--[if IE 6]><link rel="stylesheet" href="{% static "/styles/buggy.css" %}"><![endif]-->
 	{% block css %}{% endblock %}
-	{% js "scripts/jquery-1.4.2.min.js" %}
+	<script src="{% static "scripts/jquery-1.4.2.min.js" %}"></script>
 </head>
 <body class="{% block body %}home{% endblock %}">
 	<div id="headerWrapper">
@@ -55,34 +54,42 @@
 
                 			{% if request.user.is_authenticated %}
     					        <div id="donateAsk" class="section">
-            				        <p><a href="/admin/">Admin</a> | <a href="/staff/logout/">Logout</a></p>
+                                    {% if request.user.is_staff %}
+                                    <p><a href="/admin/">Admin</a> | <a href="/staff/logout/">Logout</a></p>
+                                    {% else %}
+                                    <p>Logged in as {{ request.user }} | <a href="{% url logout %}">Logout</a>
+                                    {% endif %}
                     		    </div>
         				    {% endif %}
 
-                            {% block register %}
-        				    <div class="section">
-        				    	<a class="btn" href="https://tcamp13.eventbrite.com" id="register" rel="external">Register Now!</a>
-        				    </div>
+                            {% block innersidebar %}
+
+                                {% block register %}
+            				    <div class="section">
+            				    	<a class="btn" href="https://tcamp13.eventbrite.com" id="register" rel="external">Register Now!</a>
+            				    </div>
+                                {% endblock %}
+
+                        		{% block sponsors %}{% endblock %}
+
+                        		<div id="tweets">
+                        			<h3>Updates from <a href="http://twitter.com/tcampdc">@TCampDC</a></h3>
+                        			<ol class="hfeed">
+                        			    {% updates as updates %}
+                                        {% for update in updates|slice:":5" %}
+                                    	<li class="hentry">
+                                    		<div class="tweetMetadata">
+                                    			<span class="tweetMetaDate"><a href="http://twitter.com/{{ update.user.screen_name }}/status/{{ update.twitter_id }}" class="bookmark"><abbr class="published" title="{{ update.timestamp.isoformat }}">{{ update.timestamp|date:"F j" }} {{ update.timestamp|time:"g:i A" }}</abbr></a></span>
+                                    		</div>
+                                    		<div class="tweetContent">
+                                    			<p class="entry-title">{{ update.content|urlize }}</p>
+                                    		</div>
+                                    	</li>
+                                    	{% endfor %}
+                                    </ol>
+                        		</div>
+
                             {% endblock %}
-
-                    		{% block sponsors %}{% endblock %}
-
-                    		<div id="tweets">
-                    			<h3>Updates from <a href="http://twitter.com/tcampdc">@TCampDC</a></h3>
-                    			<ol class="hfeed">
-                    			    {% updates as updates %}
-                                    {% for update in updates|slice:":5" %}
-                                	<li class="hentry">
-                                		<div class="tweetMetadata">
-                                			<span class="tweetMetaDate"><a href="http://twitter.com/{{ update.user.screen_name }}/status/{{ update.twitter_id }}" class="bookmark"><abbr class="published" title="{{ update.timestamp.isoformat }}">{{ update.timestamp|date:"F j" }} {{ update.timestamp|time:"g:i A" }}</abbr></a></span>
-                                		</div>
-                                		<div class="tweetContent">
-                                			<p class="entry-title">{{ update.content|urlize }}</p>
-                                		</div>
-                                	</li>
-                                	{% endfor %}
-                                </ol>
-                    		</div>
 
                     	</div>
                 	{% endblock %}
@@ -95,6 +102,7 @@
 		<a href="http://sunlightfoundation.com">Sunlight Foundation</a>
 	</div>
 	{% block js %}
+        <script src="{% static "scripts/app.js" %}"></script>
         <script>
             $('a[rel=external]').attr('_target', 'blank');
         </script>

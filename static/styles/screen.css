@@ -586,7 +586,8 @@ ul.sessions > li { margin: 0.5em 0; }
 li.markuptype { display: none; }
 
 a.btn, a.btn-inline,
-span.btn, span.btn-inline {
+span.btn, span.btn-inline,
+button.btn, button.btn-inline {
   background: #203345;
   background: -webkit-linear-gradient(#203345 60%, #132739 60%);
   background:    -moz-linear-gradient(#203345 60%, #132739 60%);
@@ -698,3 +699,130 @@ p.donate-btn a.btn { margin: 1em 4em; width: auto; }
 .how-to #rtColumn .affix ul li a strong { font-weight: bold; }
 .how-to #rtColumn .affix ul li ul { margin-bottom: 1em; font-size: 12px; list-style: circle; }
 .how-to #rtColumn .affix > ul:last-child { margin-bottom: 0; }
+
+/* Brainstorm App */
+.brainstorm-alert { background: rgba(180, 110, 60, 0.2); border: 1px solid #b46e3c; padding: 1.5em 1.5em 0.5em; margin: 0 0 3em; }
+div#ltColumn .brainstorm-alert p {margin-top: 0;}
+.login-blocks li {
+	display: block;
+	width: 47%;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.login-blocks li a {
+	display: block;
+	background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/twitter.png) no-repeat 10px 13px;
+	border: 1px dotted rgba(0,0,0,0.1);
+	padding:10px;
+	text-decoration: none;
+	font-weight: bold;
+	text-indent: 23px;
+}
+.login-blocks li a.facebook { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/facebook.png); }
+.login-blocks li a.google { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/googleplus.png); }
+.login-blocks li a.github { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/github.png); }
+.login-blocks li a:hover {
+	background-color: #fff;
+}
+.brainstorm-form { overflow:hidden; height: 55px; }
+.brainstorm-form.open { overflow:auto; height: auto; }
+.brainstorm-form li.input {float:left; width:32%;}
+.brainstorm-form li.textarea{clear:left; float:none;}
+.brainstorm-form li.textarea textarea {width: 89%; height:60px;}
+.brainstorm.brainstorm-form { margin-bottom: 1.5em; }
+.brainstorm.brainstorm-form legend { font-size: 17px; padding-top:1em; color: #465a72; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
+.brainstorm.brainstorm-form legend:after {
+	border: 5px solid transparent;
+	border-left-color: #465a72;
+	content:" ";
+	display:inline-block;
+	width:0;
+	height:0;
+	margin-left: 5px;
+	overflow:hidden;
+	position:relative;
+	top:0;
+}
+.brainstorm.brainstorm-form.open legend:after {
+	top: 2px;
+	border-left-color: transparent;
+	border-top-color: #465a72;
+}
+div#featureArea h3 a { color: #a62710; text-decoration: none; }
+div#featureArea .brainstorm-form button {
+	text-indent: 0; margin: 0; background-image: none;
+  background: #203345;
+  background: -webkit-linear-gradient(#203345 60%, #132739 60%);
+  background:    -moz-linear-gradient(#203345 60%, #132739 60%);
+  background:     -ms-linear-gradient(#203345 60%, #132739 60%);
+  background:      -o-linear-gradient(#203345 60%, #132739 60%);
+  background:         linear-gradient(#203345 60%, #132739 60%);
+  border: 2px solid #fff;
+  color: #dddfe1;
+  display: block;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 110%;
+  margin: 1em 0;
+  text-align: center;
+  text-decoration: none;
+  text-shadow:none;
+  -webkit-box-shadow: 0 0 10px #999;
+     -moz-box-shadow: 0 0 10px #999;
+      -ms-box-shadow: 0 0 10px #999;
+       -o-box-shadow: 0 0 10px #999;
+          box-shadow: 0 0 10px #999;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.errorlist { color: #900;}
+.brainstorm-vote .btn {width: 100%;}
+.brainstorm-idea { position:relative; padding-bottom: 50px; margin-bottom: 2em; border-bottom: 1px solid #fff; }
+.brainstorm-votes-counted { float:right; width: 100px;}
+.brainstorm-description { width: 410px;}
+.brainstorm-votable {float: right; clear: right; }
+.brainstorm .brainstorm-votable form { margin-bottom: 0; padding-bottom: 0; width: 100px; /*width:50px; float: left;*/ }
+.brainstorm .brainstorm-voted form { width: 100px; }
+/*.brainstorm-votable { position:absolute; bottom: 0; width: 430px; }*/
+/*.brainstorm-votable form { float: left; padding-right: 1em;}*/
+.brainstorm-upvotes,
+.brainstorm-downvotes {
+	background: rgba(249,249,249,0.5);
+	margin-bottom: 0.5em;
+}
+.brainstorm-upvotes:after,
+.brainstorm-downvotes:after {
+	content:" ";
+	clear:both;
+	display:block;
+	visibility:hidden;
+}
+.brainstorm-login-options {
+	margin-top: 5px;
+}
+.brainstorm-login-options a {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.brainstorm-login-options a.twitter { background: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/twitter.png) no-repeat;}
+.brainstorm-login-options a.facebook { background: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/facebook.png) no-repeat;}
+.brainstorm-login-options a.google { background: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/googleplus.png) no-repeat;}
+.brainstorm-login-options a.github { background: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/github.png) no-repeat;}
+
+.upvotes,
+.downvotes {
+	display:block;
+	float:right;
+	clear: right;
+	text-indent: -9999px;
+	background: #5db16e;
+	padding-right: 1px;
+	max-width: 95%;
+}
+.downvotes { background: #a95751; }
+#disqus_thread { margin-top: 3em; }

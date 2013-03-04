@@ -8,43 +8,31 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Jeremy Carbaugh', 'jcarbaugh@sunlightfoundation.com'),
+    ('Dan Drinkard', 'ddrinkard@sunlightfoundation.com'),
 )
 
 MANAGERS = ADMINS
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'America/New_York'
-
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
-
 SITE_ID = 1
-
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
 USE_I18N = False
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale
 USE_L10N = True
 
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = 'http://assets.sunlightfoundation.com/admin/1.3/'
+AWS_STORAGE_BUCKET_NAME = "assets.transparencycamp.org"
+S3_URL = 'http://assets.transparencycamp.org.s3.amazonaws.com/2.0/'
+COMPRESS_URL = S3_URL + 'static/'
+COMPRESS_STORAGE = 's3utils.StaticRootS3BotoStorage'
+STATICFILES_STORAGE = COMPRESS_STORAGE
+STATIC_ROOT = '.static_cache'
+STATIC_URL = COMPRESS_URL
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_URL = '/media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -54,9 +42,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '12ml4w&pa+&u)jkdzmp3#8x9mx*rk3)uhw9yf!s5saa)_&qb)s'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -79,19 +64,28 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
+    "social_auth.context_processors.social_auth_by_type_backends",
+    "social_auth.context_processors.social_auth_login_redirect",
+    "brainstorm.context_processors.brainstorm",
 )
 
 AUTHENTICATION_BACKENDS = (
     'googleauth.backends.GoogleAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'social_auth.backends.contrib.disqus.DisqusBackend',
 )
 
-LOGIN_REDIRECT_URL = '/admin/'
-
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/logged-in/'
+LOGOUT_URL = '/logout/'
 GOOGLEAUTH_DOMAIN = 'sunlightfoundation.com'
 GOOGLEAUTH_IS_STAFF = True
 GOOGLEAUTH_REALM = 'transparencycamp.org'
-
+SOCIAL_AUTH_UUID_LENGTH = 3
 ROOT_URLCONF = 'transparencycamp.urls'
 
 INSTALLED_APPS = (
@@ -102,11 +96,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.markup',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'debug_toolbar',
-    'mediasync',
+    'template_repl',
+    'brainstorm',
     'markupwiki',
     'tastypie',
+    'social_auth',
+    'storages',
+    'compressor',
     'transparencycamp.uncon',
     'gunicorn',
 )
