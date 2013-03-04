@@ -77,7 +77,7 @@ class Idea(models.Model):
 
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    user = models.ForeignKey(User, null=True, related_name='ideas')
+    user = models.ForeignKey(User, null=True, blank=True, related_name='ideas')
     subsite = models.ForeignKey(Subsite, related_name='ideas')
     is_public = models.BooleanField(default=True)
 
