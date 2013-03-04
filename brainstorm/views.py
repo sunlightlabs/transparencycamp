@@ -16,7 +16,7 @@ def idea_list(request, slug, ordering='most_popular', **kwargs):
     subsite = get_object_or_404(Subsite, slug=slug)
     ordering_db = {'most_popular': '-score',
                    'latest': '-timestamp'}.get(ordering, ordering)
-    qs = Idea.objects.with_user_vote(request.user).filter(subsite__slug=slug).select_related().order_by(ordering_db)
+    qs = Idea.objects.public().with_user_vote(request.user).filter(subsite__slug=slug).select_related().order_by(ordering_db)
     form = kwargs.get('form', IdeaForm())
     if hasattr(qs, '_gatekeeper'):
         qs = qs.approved()
@@ -27,7 +27,7 @@ def idea_list(request, slug, ordering='most_popular', **kwargs):
 
 
 def idea_detail(request, slug, id):
-    idea = get_object_or_404(Idea.objects.with_user_vote(request.user), pk=id, subsite__slug=slug)
+    idea = get_object_or_404(Idea.objects.public().with_user_vote(request.user), pk=id, subsite__slug=slug)
     return render_to_response('brainstorm/idea_detail.html',
                               {'idea': idea,
                                'subsite': idea.subsite,

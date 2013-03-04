@@ -58,8 +58,11 @@ class Subsite(models.Model):
 
 class IdeaManager(models.Manager):
 
-    def with_user_vote(self, user):
-        return self.extra(select={'user_vote': 'SELECT value FROM brainstorm_vote WHERE idea_id=brainstorm_idea.id AND user_id=%s'}, select_params=[user.id])
+    def with_user_vote(qs, user):
+        return qs.extra(select={'user_vote': 'SELECT value FROM brainstorm_vote WHERE idea_id=brainstorm_idea.id AND user_id=%s'}, select_params=[user.id])
+
+    def public(qs):
+        return qs.filter(is_public=True)
 
 
 class Idea(models.Model):
@@ -76,6 +79,7 @@ class Idea(models.Model):
 
     user = models.ForeignKey(User, null=True, related_name='ideas')
     subsite = models.ForeignKey(Subsite, related_name='ideas')
+    is_public = models.BooleanField(default=True)
 
     objects = IdeaManager()
 
