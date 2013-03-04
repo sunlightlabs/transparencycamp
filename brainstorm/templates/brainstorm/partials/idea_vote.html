@@ -53,7 +53,7 @@ window.maxVote = {{ idea.subsite.max_vote_count }}
     <h3><a href="{{ idea.get_absolute_url }}">{{ idea.title }}</a></h3>
     <div class="brainstorm-timestamp">
         Submitted on {{ idea.timestamp|date:"m/d P" }} by {{ idea.name }} |
-        <a class="brainstorm-disqus-comments" href="{{ idea.get_absolute_url }}{% if BRAINSTORM_USE_DISQUS %}#disqus_thread{% endif %}"></a>
+        <a class="brainstorm-disqus-comments" href="http://{{ request.META.HTTP_HOST }}{{ idea.get_absolute_url }}{% if BRAINSTORM_USE_DISQUS %}#disqus_thread{% endif %}"></a>
     </div>
     {% if is_permalink %}
     <p>{{ idea.description|urlize|linebreaks }}</p>
