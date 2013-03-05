@@ -719,9 +719,9 @@ div#ltColumn .brainstorm-alert p {margin-top: 0;}
 	font-weight: bold;
 	text-indent: 23px;
 }
-.login-blocks li a.facebook { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/facebook.png); }
-.login-blocks li a.google { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/googleplus.png); }
-.login-blocks li a.github { background-image: url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/github.png); }
+.login-blocks li a.facebook { background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/facebook.png) no-repeat 10px 13px; }
+.login-blocks li a.google { background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/googleplus.png) no-repeat 10px 13px; }
+.login-blocks li a.github { background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/github.png) no-repeat 10px 13px; }
 .login-blocks li a:hover {
 	background-color: #fff;
 }
