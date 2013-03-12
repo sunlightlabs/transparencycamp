@@ -19,6 +19,8 @@ body{
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+hr { margin: 40px 0; border:none; border-bottom: 1px solid #ccc; }
+
 strong em {color:#525354; font-weight:bold;}
 
 .clearfix:after {
@@ -176,6 +178,8 @@ a#live-button {
 h2 { font-size: 180%; margin-bottom: 25px;}
 h3 { font-size: 130%; margin-bottom: 15px;}
 h3, h2 { color: #a62710; }
+h2 a, h2 a:link, h2 a:visited { text-decoration: none; color: #a62710; border-bottom: 1px dotted #ccc;}
+h2 a:hover { color: #465a72; }
 .centerTitle { text-align: center;}
 
 h3, div#ltColumn h2{
@@ -723,7 +727,7 @@ div#ltColumn .brainstorm-alert p {margin-top: 0;}
 .login-blocks li a.google { background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/googleplus.png) no-repeat 10px 13px; }
 .login-blocks li a.github { background: rgba(255,255,255,0.5) url(http://assets.sunlightfoundation.com.s3.amazonaws.com/social/images/16/github.png) no-repeat 10px 13px; }
 .login-blocks li a:hover {
-	background-color: #fff;
+	background-color: #ddd;
 }
 .brainstorm-form { overflow:hidden; height: 55px; }
 .brainstorm-form.open { overflow:auto; height: auto; }
