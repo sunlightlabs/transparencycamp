@@ -730,8 +730,10 @@ div#ltColumn .brainstorm-alert p {margin-top: 0;}
 	background-color: #ddd;
 }
 .brainstorm-form { overflow:hidden; height: 55px; }
+.brainstorm-form-standalone .brainstorm-form,
 .brainstorm-form.open { overflow:auto; height: auto; }
 .brainstorm-form li.input {float:left; width:32%;}
+.brainstorm-form-standalone .brainstorm-form li.input {float:none; width: auto;}
 .brainstorm-form li.textarea{clear:left; float:none;}
 .brainstorm-form li.textarea textarea {width: 89%; height:60px;}
 .brainstorm.brainstorm-form { margin-bottom: 1.5em; }

@@ -2,12 +2,13 @@ import json
 import datetime
 
 from django.template import RequestContext
-from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.shortcuts import get_object_or_404, render_to_response, render, redirect
 from django.http import HttpResponse
 from django.views.generic import list_detail
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from brainstorm.models import Subsite, Idea, Vote
 from brainstorm.forms import IdeaForm
 
@@ -17,7 +18,7 @@ def idea_list(request, slug, ordering='most_popular', **kwargs):
     ordering_db = {'most_popular': '-score',
                    'latest': '-timestamp'}.get(ordering, ordering)
     qs = Idea.objects.with_user_vote(request.user).filter(subsite__slug=slug, is_public=True).select_related().order_by(ordering_db)
-    form = kwargs.get('form', IdeaForm())
+    form = kwargs.get('form', IdeaForm(request))
     if hasattr(qs, '_gatekeeper'):
         qs = qs.approved()
     return list_detail.object_list(request, queryset=qs,
@@ -40,7 +41,7 @@ def new_idea(request, slug):
     subsite = get_object_or_404(Subsite, pk=slug)
     if not subsite.user_can_post(request.user):
         return redirect(subsite.get_absolute_url())
-    form = IdeaForm(request.POST)
+    form = IdeaForm(request, request.POST)
     request.session['name'] = form['name'].value()
     request.session['email'] = form['email'].value()
     if form.is_valid():
@@ -51,7 +52,9 @@ def new_idea(request, slug):
         idea = Idea.objects.create(**data)
         return redirect(idea)
     else:
-        return idea_list(request, slug, form=form)
+        import pdb; pdb.set_trace()
+        ctx = {'subsite': subsite, 'form': form}
+        return render(request, 'brainstorm/idea_form.html', ctx)
 
 
 @require_POST

@@ -1,0 +1,22 @@
+{% extends subsite.theme %}
+{% load staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "brainstorm/scoped-bootstrap-form.css" %}">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+{% endblock %}
+
+{% block feature %}{% endblock %}
+
+{% block content %}
+<h3 style="font-size:180%;margin:1em 0;">{{ subsite.name }}</h3>
+{{ subsite.description|linebreaks }}
+<div class="brainstorm-form-standalone">
+    {% include "brainstorm/partials/idea_form.html" %}
+</div>
+{% endblock %}
+
