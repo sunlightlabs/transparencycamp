@@ -9,6 +9,7 @@ django-storages
 django_compressor
 python-dateutil==1.5
 pytz
+akismet
 
 markdown
 -e git://github.com/drinks/django-markupfield.git#egg=markupfield
