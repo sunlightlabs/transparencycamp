@@ -52,7 +52,6 @@ def new_idea(request, slug):
         idea = Idea.objects.create(**data)
         return redirect(idea)
     else:
-        import pdb; pdb.set_trace()
         ctx = {'subsite': subsite, 'form': form}
         return render(request, 'brainstorm/idea_form.html', ctx)
 
