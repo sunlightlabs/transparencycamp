@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from akismet import Akismet
 from django.forms import ModelForm, ValidationError
 from django.conf import settings
@@ -19,10 +17,10 @@ class IdeaForm(ModelForm):
         request = self.request
         ak = Akismet(settings.AKISMET_KEY, 'http://transparencycamp.org/ideas/')
         ak.verify_key()
-        if ak.comment_check(str(self.cleaned_data.get('description').encode('ascii', 'ignore')), {
-                'comment_author': str(self.cleaned_data.get('name').encode('ascii', 'ignore')),
-                'comment_author_email': str(self.cleaned_data.get('email').encode('ascii', 'ignore')),
-                'user_ip': str(request.META.get('HTTP_X_FOWARDED_FOR', request.META['REMOTE_ADDR'])),
-                'user_agent': str(request.META.get('HTTP_USER_AGENT')), }):
+        if ak.comment_check(self.cleaned_data.get('description').encode('ascii', 'ignore'), {
+                'comment_author': self.cleaned_data.get('name').encode('ascii', 'ignore'),
+                'comment_author_email': self.cleaned_data.get('email').encode('ascii', 'ignore'),
+                'user_ip': request.META.get('HTTP_X_FOWARDED_FOR', request.META['REMOTE_ADDR']),
+                'user_agent': request.META.get('HTTP_USER_AGENT'), }):
             raise ValidationError("Your submission contained known spam.")
         return super(IdeaForm, self).clean()
